@@ -5,7 +5,7 @@
  */
 
 export * from './types';
-import { MCPClientCapabilities } from './types';
+import { McpClientCapabilities } from './types';
 
 // Import client capabilities from JSON
 import clientsData from './clients.json';
@@ -14,12 +14,12 @@ import clientsData from './clients.json';
  * Type for the clients object structure
  */
 export type ClientsIndex = {
-  [clientName: string]: MCPClientCapabilities;
+  [clientName: string]: McpClientCapabilities;
 };
 
 /**
  * All MCP client capabilities indexed by client name
  */
-export const clients: ClientsIndex = clientsData as ClientsIndex;
+export const mcpClientCapabilities: ClientsIndex = clientsData as ClientsIndex;
 
-export default clients;
+export default mcpClientCapabilities;

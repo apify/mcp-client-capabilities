@@ -2,13 +2,13 @@
  * Validation script to ensure clients.json matches TypeScript types
  */
 
-import { MCPClientCapabilities } from './types';
+import { McpClientCapabilities } from './types';
 import clientsData from './clients.json';
 
 /**
  * Validates that a client capability object matches the expected interface
  */
-function validateClientCapabilities(clientName: string, capabilities: any): capabilities is MCPClientCapabilities {
+function validateClientCapabilities(clientName: string, capabilities: any): capabilities is McpClientCapabilities {
   const errors: string[] = [];
 
   // Check that it's an object
@@ -17,8 +17,22 @@ function validateClientCapabilities(clientName: string, capabilities: any): capa
     return false;
   }
 
+  // Check mandatory clientName field
+  if (!capabilities.clientName) {
+    errors.push(`${clientName}: missing required field 'clientName'`);
+  } else if (typeof capabilities.clientName !== 'string') {
+    errors.push(`${clientName}.clientName: must be a string`);
+  }
+
+  // Check mandatory displayName field
+  if (!capabilities.displayName) {
+    errors.push(`${clientName}: missing required field 'displayName'`);
+  } else if (typeof capabilities.displayName !== 'string') {
+    errors.push(`${clientName}.displayName: must be a string`);
+  }
+
   // Check optional properties
-  const validKeys = ['completions', 'experimental', 'logging', 'prompts', 'resources', 'tools'];
+  const validKeys = ['clientName', 'displayName', 'completions', 'experimental', 'logging', 'prompts', 'resources', 'tools'];
   for (const key of Object.keys(capabilities)) {
     if (!validKeys.includes(key)) {
       errors.push(`${clientName}: unknown property '${key}'`);

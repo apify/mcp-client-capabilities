@@ -13,6 +13,8 @@ The capabilities structure follows this format:
 ```typescript
 {
   '{client name}': {
+    clientName: string;
+    displayName: string;
     completions?: {};
     experimental?: { [key: string]: object };
     logging?: {};
@@ -30,11 +32,15 @@ To add a new client, simply edit the `src/clients.json` file:
 ```json
 {
   "claude-desktop": {
+    "clientName": "claude-desktop",
+    "displayName": "Claude Desktop",
     "prompts": {},
     "resources": {},
     "tools": {}
   },
   "my-client": {
+    "clientName": "my-client",
+    "displayName": "My Custom Client",
     "prompts": { "listChanged": true },
     "tools": { "listChanged": true }
   }
@@ -65,10 +71,10 @@ npm run example
 ## Usage
 
 ```typescript
-import { clients } from 'mcp-client-capabilities';
+import { mcpClientCapabilities } from 'mcp-client-capabilities';
 
 // Access Claude Desktop capabilities
-const claudeDesktopCaps = clients['claude-desktop'];
+const claudeDesktopCaps = mcpClientCapabilities['claude-desktop'];
 console.log(claudeDesktopCaps);
 
 // Check if a client supports specific features
@@ -77,7 +83,11 @@ if (claudeDesktopCaps.tools?.listChanged) {
 }
 
 // List all available clients
-console.log('Available clients:', Object.keys(clients));
+console.log('Available clients:', Object.keys(mcpClientCapabilities));
+
+// Access client metadata
+console.log('Client name:', claudeDesktopCaps.clientName);
+console.log('Display name:', claudeDesktopCaps.displayName);
 ```
 
 ## Multi-Language Support
@@ -93,6 +103,7 @@ with open('src/clients.json', 'r') as f:
 
 claude_caps = clients['claude-desktop']
 print(f"Claude Desktop capabilities: {claude_caps}")
+print(f"Display name: {claude_caps['displayName']}")
 ```
 
 ### JavaScript (Node.js) Example
@@ -101,26 +112,25 @@ const clients = require('./src/clients.json');
 
 const claudeCaps = clients['claude-desktop'];
 console.log('Claude Desktop capabilities:', claudeCaps);
+console.log('Display name:', claudeCaps.displayName);
 ```
 
 ## API
 
 ### Types
 
-- `MCPClientCapabilities` - Complete capability set for an MCP client
-- `CompletionsCapability` - Completions capability (empty object)
-- `ExperimentalCapability` - Experimental capabilities (key-value pairs)
-- `LoggingCapability` - Logging capability (empty object)
-- `PromptsCapability` - Prompts capability with optional `listChanged`
-- `ResourcesCapability` - Resources capability with optional `listChanged` and `subscribe`
-- `ToolsCapability` - Tools capability with optional `listChanged`
+- `McpClientCapabilities` - Complete capability set for an MCP client with mandatory `clientName` and `displayName` fields
 - `ClientsIndex` - Type for the clients object structure
 
 ### Exports
 
-- `clients` - Object containing all client capabilities indexed by client name
+- `mcpClientCapabilities` - Object containing all client capabilities indexed by client name
 - All TypeScript interfaces from `types.ts`
 
 ## Validation
 
 The project includes automatic validation to ensure the JSON structure matches the TypeScript interfaces. Run `npm run validate` to check the JSON file, or `npm run build` which includes validation as part of the build process.
+
+Required fields:
+- `clientName` - The actual client name specified in the `clientInfo` of the initialize MCP request
+- `displayName` - The display name of the client for user interfaces

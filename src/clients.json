@@ -1,5 +1,7 @@
 {
   "claude-desktop": {
+    "clientName": "claude-desktop",
+    "displayName": "Claude Desktop",
     "prompts": {},
     "resources": {},
     "tools": {}
