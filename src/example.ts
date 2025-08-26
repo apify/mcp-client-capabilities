@@ -17,20 +17,24 @@ console.log();
 
 // Check specific capabilities
 const claudeDesktop = clients['claude-desktop'];
-if (claudeDesktop.prompts?.listChanged) {
-  console.log('✓ Claude Desktop supports prompts list change notifications');
-} else {
-  console.log('✗ Claude Desktop does not support prompts list change notifications');
-}
+if (claudeDesktop) {
+  if (claudeDesktop.prompts?.listChanged) {
+    console.log('✓ Claude Desktop supports prompts list change notifications');
+  } else {
+    console.log('✗ Claude Desktop does not support prompts list change notifications');
+  }
 
-if (claudeDesktop.resources?.subscribe) {
-  console.log('✓ Claude Desktop supports resource subscriptions');
-} else {
-  console.log('✗ Claude Desktop does not support resource subscriptions');
-}
+  if (claudeDesktop.resources?.subscribe) {
+    console.log('✓ Claude Desktop supports resource subscriptions');
+  } else {
+    console.log('✗ Claude Desktop does not support resource subscriptions');
+  }
 
-if (claudeDesktop.tools?.listChanged) {
-  console.log('✓ Claude Desktop supports tools list change notifications');
+  if (claudeDesktop.tools?.listChanged) {
+    console.log('✓ Claude Desktop supports tools list change notifications');
+  } else {
+    console.log('✗ Claude Desktop does not support tools list change notifications');
+  }
 } else {
-  console.log('✗ Claude Desktop does not support tools list change notifications');
+  console.log('❌ Claude Desktop client not found');
 }

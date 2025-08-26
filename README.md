@@ -4,7 +4,7 @@ An index of all Model Context Protocol (MCP) server capabilities, providing Type
 
 ## Overview
 
-This package provides a simple way to access MCP (Model Context Protocol) client capabilities. Each client has its own file in the `clients/` directory, and all capabilities are exported through a single `clients` object.
+This package provides a simple way to access MCP (Model Context Protocol) client capabilities. All client capabilities are stored in a single `clients.json` file, making it easy for multiple programming languages to access the data while maintaining TypeScript type safety.
 
 ## Structure
 
@@ -25,32 +25,23 @@ The capabilities structure follows this format:
 
 ## Adding New Clients
 
-To add a new client:
+To add a new client, simply edit the `src/clients.json` file:
 
-1. Create a new file in `src/clients/` (e.g., `my-client.ts`)
-2. Export the capabilities object:
-
-```typescript
-import { MCPClientCapabilities } from '../types';
-
-const myClientCapabilities: MCPClientCapabilities = {
-  prompts: { listChanged: true },
-  tools: { listChanged: true }
-};
-
-export default myClientCapabilities;
+```json
+{
+  "claude-desktop": {
+    "prompts": {},
+    "resources": {},
+    "tools": {}
+  },
+  "my-client": {
+    "prompts": { "listChanged": true },
+    "tools": { "listChanged": true }
+  }
+}
 ```
 
-3. Import and add it to the `clients` object in `src/index.ts`:
-
-```typescript
-import myClient from './clients/my-client';
-
-export const clients = {
-  'claude-desktop': claudeDesktop,
-  'my-client': myClient,
-};
-```
+The build process includes validation to ensure the JSON matches the TypeScript interfaces.
 
 ## Installation
 
@@ -61,7 +52,10 @@ npm install mcp-client-capabilities
 ## Development
 
 ```bash
-# Build the project
+# Validate the JSON structure
+npm run validate
+
+# Build the project (includes validation)
 npm run build
 
 # Run example
@@ -86,6 +80,29 @@ if (claudeDesktopCaps.tools?.listChanged) {
 console.log('Available clients:', Object.keys(clients));
 ```
 
+## Multi-Language Support
+
+Since the capabilities are stored in JSON format, other programming languages can easily parse the `src/clients.json` file directly:
+
+### Python Example
+```python
+import json
+
+with open('src/clients.json', 'r') as f:
+    clients = json.load(f)
+
+claude_caps = clients['claude-desktop']
+print(f"Claude Desktop capabilities: {claude_caps}")
+```
+
+### JavaScript (Node.js) Example
+```javascript
+const clients = require('./src/clients.json');
+
+const claudeCaps = clients['claude-desktop'];
+console.log('Claude Desktop capabilities:', claudeCaps);
+```
+
 ## API
 
 ### Types
@@ -97,8 +114,13 @@ console.log('Available clients:', Object.keys(clients));
 - `PromptsCapability` - Prompts capability with optional `listChanged`
 - `ResourcesCapability` - Resources capability with optional `listChanged` and `subscribe`
 - `ToolsCapability` - Tools capability with optional `listChanged`
+- `ClientsIndex` - Type for the clients object structure
 
 ### Exports
 
 - `clients` - Object containing all client capabilities indexed by client name
 - All TypeScript interfaces from `types.ts`
+
+## Validation
+
+The project includes automatic validation to ensure the JSON structure matches the TypeScript interfaces. Run `npm run validate` to check the JSON file, or `npm run build` which includes validation as part of the build process.
