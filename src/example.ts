@@ -2,21 +2,21 @@
  * Simple example of using the MCP Client Capabilities index
  */
 
-import { mcpClientCapabilities } from './index';
+import { mcpClients } from './index';
 
 console.log('=== MCP Client Capabilities ===\n');
 
 // Access Claude Desktop capabilities directly
 console.log('Claude Desktop capabilities:');
-console.log(JSON.stringify(mcpClientCapabilities['claude-desktop'], null, 2));
+console.log(JSON.stringify(mcpClients['claude-desktop'], null, 2));
 console.log();
 
 // List all available clients
-console.log('Available clients:', Object.keys(mcpClientCapabilities));
+console.log('Available clients:', Object.keys(mcpClients));
 console.log();
 
 // Check specific capabilities
-const claudeDesktop = mcpClientCapabilities['claude-desktop'];
+const claudeDesktop = mcpClients['claude-desktop'];
 if (claudeDesktop) {
   if (claudeDesktop.prompts?.listChanged) {
     console.log('✓ Claude Desktop supports prompts list change notifications');

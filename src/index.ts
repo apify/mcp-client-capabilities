@@ -20,6 +20,6 @@ export type ClientsIndex = {
 /**
  * All MCP client capabilities indexed by client name
  */
-export const mcpClientCapabilities: ClientsIndex = clientsData as ClientsIndex;
+export const mcpClients: ClientsIndex = clientsData as ClientsIndex;
 
-export default mcpClientCapabilities;
+export default mcpClients;

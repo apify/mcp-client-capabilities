@@ -57,10 +57,10 @@ The MCP server MUST then respond with a message like:
 ```
 
 Unfortunately, this [capability negotiation](https://modelcontextprotocol.io/specification/2025-06-18/architecture#capability-negotiation)
-is not sufficient for MCP servers to fully understand what features the client supports.
+is not sufficient for MCP servers to fully understand what features a client supports.
 For example, the server will not know if the client supports dynamic tool discovery via the `notifications/tools/list_changed` notification,
 or whether it applies the initial server `instructions` to the model context. But this information is crucial for servers to
-understand what interface they can provide to client, e.g. whether they should provide alternative tools for dynamic discovery and calling,
+understand what interface they can provide to clients, e.g. whether they should provide alternative tools for dynamic discovery and calling,
 or stuff the instructions into the tool descriptions instead.
 
 This limitation of MCP leads to the "lowest common denominator" approach, where servers adopt only basic MCP
@@ -73,7 +73,7 @@ Therefore, we're releasing this package with a hope to accelerate the developmen
 
 ## How it works
 
-This package provides a JSON file called `src/mcp-clients.json` that lists all known MCP clients, metadata, and capabilities.
+This package provides a JSON file called `src/mcp-clients.json` that lists all known MCP clients, their metadata and capabilities.
 It's a single JSON file to make it easy for multiple programming languages to access the data while enabling TypeScript type safety
 for the NPM package.
 
@@ -82,7 +82,7 @@ The JSON file contains an object where keys are client names and values an objec
 ```typescript
 {
   // Client name corresponds to `params.clientInfo.name` from the MCP client's `initialize` request, e.g. "ExampleClient"
-  "<clientName>": {
+  "<client-name>": {
 
     // Display name of the MCP client, e.g. "Example Client"
     displayName: string,
@@ -95,7 +95,7 @@ The JSON file contains an object where keys are client names and values an objec
 
     // Present if the client supports accessing server resources,
     // whether it can handle their dynamic changes, and whether it can subscribe to resource updates
-    resources?: { listChanged?: boolean; subscribe?: boolean },
+    resources?: { listChanged?: boolean, subscribe?: boolean },
 
     // Present if the client supports accessing server prompts,
     // and whether it can handle their dynamic changes
@@ -121,7 +121,7 @@ The JSON file contains an object where keys are client names and values an objec
     // Present if the client supports reading log messages from the server.        
     logging?: object,
   },
-  "<clientName2>": { ... },
+  "<client-name-2>": { ... },
   ...
 }
 ```
@@ -142,18 +142,19 @@ latest known publicly-available release.
 This is under the assumption that most users will use the latest version of MCP clients.
 
 The `protocolVersion` only serves as a crude check: **If the version received from the MCP client
-doesn't match the version provided in this JSON file,
+doesn't match the version provided in the JSON file,
 the MCP server should ignore any information provided by the JSON file, as it's clearly out of date.**
 
 If a new MCP client release introduces support for new server capabilities compared to the previous release,
-we strongly recommend the MCP clients to use a new client name, to avoid confusing the servers.
+we strongly recommend the MCP clients to use a new client name to avoid confusing the servers
+and provide the best user and agent experience.
 
 
 ## Usage
 
 ### Node.js 
 
-Install the package by running:
+Install the NPM package by running:
 
 ```bash
 npm install mcp-client-capabilities
@@ -162,23 +163,23 @@ npm install mcp-client-capabilities
 #### TypeScript example
 
 ```typescript
-import { mcpClientCapabilities } from 'mcp-client-capabilities';
+import { mcpClients } from 'mcp-client-capabilities';
 
 // Access Claude Desktop capabilities
-const claudeDesktopClient = mcpClientCapabilities['claude-desktop'];
-console.log(claudeDesktopClient);
+const claudeClient = mcpClients['claude-desktop'];
+console.log(claudeClient);
 
 // Check if a client supports specific features
-if (claudeDesktopClient.tools?.listChanged) {
+if (claudeClient.tools?.listChanged) {
   console.log('Claude Desktop supports tools list changes');
 }
 
 // List all available clients
-console.log('Available clients:', Object.keys(mcpClientCapabilities));
+console.log('Available clients:', Object.keys(mcpClients));
 
 // Access client metadata
-console.log('Client name:', claudeDesktopClient.clientName);
-console.log('Display name:', claudeDesktopClient.displayName);
+console.log('Client name:', claudeClient.clientName);
+console.log('Display name:', claudeClient.displayName);
 ```
 
 #### JavaScript example
@@ -186,9 +187,9 @@ console.log('Display name:', claudeDesktopClient.displayName);
 ```javascript
 const clients = require('./src/mcp-clients.json');
 
-const claudeCaps = clients['claude-desktop'];
-console.log('Claude Desktop capabilities:', claudeCaps);
-console.log('Display name:', claudeCaps.displayName);
+const claudeClient = clients['claude-desktop'];
+console.log('Claude Desktop capabilities:', claudeClient);
+console.log('Display name:', claudeClient.displayName);
 ```
 
 ### Python
@@ -208,18 +209,17 @@ print(f"Display name: {claude_caps['displayName']}")
 ```
 
 
-
 ## Contributors
 
 We highly appreciate community contributions to make the list of MCP clients and their capabilities up to date.
 
 To add a new client or updated an existing one, simply edit the `src/mcp-clients.json` file
-and submit a pull request.
+and submit a pull request:
 
-Here are basic rules:
-- The pull request should contain some evidence to back existence of the MCP client capabilities, e.g. screenshot
-  from usage, link to source, or official docs.
-- Ideally, add or update just one MCP client per pull request
+- The pull request should contain some evidence to back up the existence of the MCP client capabilities, e.g. screenshot
+  from usage, link to its source code, or official docs.
+- Ideally, add or update just one MCP client per pull request, to make this more manageable.
+- Keep the clients in alphabetical order by their name.
 
 ### Development
 
@@ -245,7 +245,7 @@ npm run example
 
 #### Exports
 
-- `mcpClientCapabilities` - Object containing all client capabilities indexed by client name
+- `mcpClients` - Object containing all client capabilities indexed by client name
 - All TypeScript interfaces from `types.ts`
 
 ### Future work
