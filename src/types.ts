@@ -5,7 +5,7 @@
 /**
  * Represents the complete capability set for an MCP client
  */
-export interface McpClientCapabilities {
+export interface McpClientRecord {
   /**
    * The display name of the client for user interfaces
    */
@@ -14,6 +14,8 @@ export interface McpClientCapabilities {
    * Actual client name specified in the `clientInfo` of the initialize MCP request
    */
   clientName: string;
+  url: string,
+
   completions?: {};
   experimental?: { [key: string]: object };
   logging?: {};

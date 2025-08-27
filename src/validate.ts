@@ -1,14 +1,14 @@
 /**
- * Validation script to ensure clients.json matches TypeScript types
+ * Validation script to ensure mcp-clients matches TypeScript types
  */
 
-import { McpClientCapabilities } from './types';
-import clientsData from './clients.json';
+import { McpClientRecord } from './types';
+import clientsData from './mcp-clients.json';
 
 /**
  * Validates that a client capability object matches the expected interface
  */
-function validateClientCapabilities(clientName: string, capabilities: any): capabilities is McpClientCapabilities {
+function validateClientCapabilities(clientName: string, capabilities: any): capabilities is McpClientRecord {
   const errors: string[] = [];
 
   // Check that it's an object
@@ -22,6 +22,10 @@ function validateClientCapabilities(clientName: string, capabilities: any): capa
     errors.push(`${clientName}: missing required field 'clientName'`);
   } else if (typeof capabilities.clientName !== 'string') {
     errors.push(`${clientName}.clientName: must be a string`);
+  } else if (typeof capabilities.url !== 'string') {
+    errors.push(`${clientName}.url: must be a string`);
+  } else if (typeof capabilities.protocolVersion !== 'string') {
+    errors.push(`${clientName}.protocolVersion: must be a string`);
   }
 
   // Check mandatory displayName field
@@ -32,7 +36,7 @@ function validateClientCapabilities(clientName: string, capabilities: any): capa
   }
 
   // Check optional properties
-  const validKeys = ['clientName', 'displayName', 'completions', 'experimental', 'logging', 'prompts', 'resources', 'tools'];
+  const validKeys = ['clientName', 'displayName', 'url', 'protocolVersion', 'completions', 'experimental', 'logging', 'prompts', 'resources', 'tools'];
   for (const key of Object.keys(capabilities)) {
     if (!validKeys.includes(key)) {
       errors.push(`${clientName}: unknown property '${key}'`);
@@ -124,8 +128,8 @@ function validateClientCapabilities(clientName: string, capabilities: any): capa
  * Main validation function
  */
 function validateClientsJson(): boolean {
-  console.log('Validating clients.json...');
-  
+  console.log('Validating mcp-clients...');
+
   let isValid = true;
 
   for (const [clientName, capabilities] of Object.entries(clientsData)) {
@@ -135,10 +139,10 @@ function validateClientsJson(): boolean {
   }
 
   if (isValid) {
-    console.log('✅ clients.json is valid!');
+    console.log('✅ mcp-clients is valid!');
     console.log(`Found ${Object.keys(clientsData).length} client(s): ${Object.keys(clientsData).join(', ')}`);
   } else {
-    console.log('❌ clients.json has validation errors');
+    console.log('❌ mcp-clients has validation errors');
   }
 
   return isValid;

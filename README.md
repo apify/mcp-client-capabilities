@@ -1,65 +1,233 @@
 # MCP Client Capabilities
 
-An index of all Model Context Protocol (MCP) server capabilities, providing TypeScript interfaces and a simple object structure for accessing client capabilities.
+This package strives to be the most up-to-date database of
+all [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) clients and their capabilities,
+to enable the MCP servers understand what features the clients support and how to respond to them
+in order to provide the best user and agent experience. In other words, this package is the programmatic version of
+the [community MCP clients](https://modelcontextprotocol.io/clients#feature-support-matrix) table.
 
-## Overview
+## Background 
 
-This package provides a simple way to access MCP (Model Context Protocol) client capabilities. All client capabilities are stored in a single `clients.json` file, making it easy for multiple programming languages to access the data while maintaining TypeScript type safety.
-
-## Structure
-
-The capabilities structure follows this format:
-
-```typescript
-{
-  '{client name}': {
-    clientName: string;
-    displayName: string;
-    completions?: {};
-    experimental?: { [key: string]: object };
-    logging?: {};
-    prompts?: { listChanged?: boolean };
-    resources?: { listChanged?: boolean; subscribe?: boolean };
-    tools?: { listChanged?: boolean };
-  }
-}
-```
-
-## Adding New Clients
-
-To add a new client, simply edit the `src/clients.json` file:
+When the MCP client [connects](https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle) to an MCP server,
+it MUST send it an `initialize` request such as:
 
 ```json
 {
-  "claude-desktop": {
-    "clientName": "claude-desktop",
-    "displayName": "Claude Desktop",
-    "prompts": {},
-    "resources": {},
-    "tools": {}
-  },
-  "my-client": {
-    "clientName": "my-client",
-    "displayName": "My Custom Client",
-    "prompts": { "listChanged": true },
-    "tools": { "listChanged": true }
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "initialize",
+  "params": {
+    "protocolVersion": "2024-11-05",
+    "capabilities": {
+      "roots": { "listChanged": true },
+      "sampling": {},
+      "elicitation": {}
+    },
+    "clientInfo": {
+      "name": "ExampleClient",
+      "title": "Example Client Display Name",
+      "version": "1.0.0"
+    }
   }
 }
 ```
 
-The build process includes validation to ensure the JSON matches the TypeScript interfaces.
+The MCP server MUST then respond with a message like:
 
-## Installation
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "protocolVersion": "2024-11-05",
+    "capabilities": {
+      "logging": {},
+      "prompts": { "listChanged": true },
+      "resources": { "subscribe": true, "listChanged": true },
+      "tools": { "listChanged": true }
+    },
+    "serverInfo": {
+      "name": "ExampleServer",
+      "title": "Example Server Display Name",
+      "version": "1.0.0"
+    },
+    "instructions": "Optional instructions for the client"
+  }
+}
+```
+
+Unfortunately, this [capability negotiation](https://modelcontextprotocol.io/specification/2025-06-18/architecture#capability-negotiation)
+is not sufficient for MCP servers to fully understand what features the client supports.
+For example, the server will not know if the client supports dynamic tool discovery via the `notifications/tools/list_changed` notification,
+or whether it applies the initial server `instructions` to the model context. But this information is crucial for servers to
+understand what interface they can provide to client, e.g. whether they should provide alternative tools for dynamic discovery and calling,
+or stuff the instructions into the tool descriptions instead.
+
+This limitation of MCP leads to the "lowest common denominator" approach, where servers adopt only basic MCP
+features they can be certain most clients support. Ultimately this leads to the stagnation of the MCP protocol,
+where neither servers nor clients have motivation to adopt latest protocol features.
+
+While there are MCP standard proposals such as [SEP-1381](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1381)
+to address this problem on the protocol level, these will take time to be approved and widely adopted by MCP clients.
+Therefore, we're releasing this package with a hope to accelerate the development of the MCP ecosystem.
+
+## How it works
+
+This package provides a JSON file called `src/mcp-clients.json` that lists all known MCP clients, metadata, and capabilities.
+It's a single JSON file to make it easy for multiple programming languages to access the data while enabling TypeScript type safety
+for the NPM package.
+
+The JSON file contains an object where keys are client names and values an object with information about the MCP client:
+
+```typescript
+{
+  // Client name corresponds to `params.clientInfo.name` from the MCP client's `initialize` request, e.g. "ExampleClient"
+  "<clientName>": {
+
+    // Display name of the MCP client, e.g. "Example Client"
+    displayName: string,
+    
+    // URL to the homepage of the client
+    url: string,
+    
+    // Corresponds to `params.protocolVersion` from the MCP client's `initialize` request, e.g. "2024-11-05"
+    protocolVersion: string,
+
+    // Present if the client supports accessing server resources,
+    // whether it can handle their dynamic changes, and whether it can subscribe to resource updates
+    resources?: { listChanged?: boolean; subscribe?: boolean },
+
+    // Present if the client supports accessing server prompts,
+    // and whether it can handle their dynamic changes
+    prompts?: { listChanged?: boolean },
+
+    // Present if the client supports accessing server tools,
+    // and whether it can handle their dynamic changes.        
+    tools?: { listChanged?: boolean },
+
+    // Present if the client supports elicitation from the server.    
+    elicitation?: object,
+    
+    // Present if the client supports sampling from an LLM.
+    sampling?: object,
+
+    // Present if the client supports listing its roots,
+    // and whether it can notify the server about their dynamic changes        
+    roots?: { listChanged?: boolean },
+
+    // Present if the client can handle server's argument autocompletion suggestions.         
+    completions?: object,
+    
+    // Present if the client supports reading log messages from the server.        
+    logging?: object,
+  },
+  "<clientName2>": { ... },
+  ...
+}
+```
+
+Note that the client object is inspired by MCP's [`ClientCapabilites`](https://modelcontextprotocol.io/specification/2025-06-18/schema#clientcapabilities)
+and [`ServerCapabilites`](https://modelcontextprotocol.io/specification/2025-06-18/schema#servercapabilities) objects,
+and the respective field types are compatible. Additional fields might be added in the future.
+
+**IMPORTANT**: MCP servers must always prioritize the information received from the MCP client's `initalize` request
+via the `params.capabilities` field (of type
+[`ClientCapabilites`](https://modelcontextprotocol.io/specification/2025-06-18/schema#clientcapabilities))
+to the capabilities information provided by this package, as it will always be more accurate!
+
+### Client versioning
+
+For each unique client name, the JSON file contains just one record representing the information about the 
+latest known publicly-available release.
+This is under the assumption that most users will use the latest version of MCP clients.
+
+The `protocolVersion` only serves as a crude check: **If the version received from the MCP client
+doesn't match the version provided in this JSON file,
+the MCP server should ignore any information provided by the JSON file, as it's clearly out of date.**
+
+If a new MCP client release introduces support for new server capabilities compared to the previous release,
+we strongly recommend the MCP clients to use a new client name, to avoid confusing the servers.
+
+
+## Usage
+
+### Node.js 
+
+Install the package by running:
 
 ```bash
 npm install mcp-client-capabilities
 ```
 
-## Development
+#### TypeScript example
+
+```typescript
+import { mcpClientCapabilities } from 'mcp-client-capabilities';
+
+// Access Claude Desktop capabilities
+const claudeDesktopClient = mcpClientCapabilities['claude-desktop'];
+console.log(claudeDesktopClient);
+
+// Check if a client supports specific features
+if (claudeDesktopClient.tools?.listChanged) {
+  console.log('Claude Desktop supports tools list changes');
+}
+
+// List all available clients
+console.log('Available clients:', Object.keys(mcpClientCapabilities));
+
+// Access client metadata
+console.log('Client name:', claudeDesktopClient.clientName);
+console.log('Display name:', claudeDesktopClient.displayName);
+```
+
+#### JavaScript example
+
+```javascript
+const clients = require('./src/mcp-clients.json');
+
+const claudeCaps = clients['claude-desktop'];
+console.log('Claude Desktop capabilities:', claudeCaps);
+console.log('Display name:', claudeCaps.displayName);
+```
+
+### Python
+
+Since the capabilities are stored in JSON format, other programming languages can easily parse the `src/mcp-clients.json` file directly:
+
+### Python Example
+```python
+import json
+
+with open('src/mcp-clients.json', 'r') as f:
+    clients = json.load(f)
+
+claude_caps = clients['claude-desktop']
+print(f"Claude Desktop capabilities: {claude_caps}")
+print(f"Display name: {claude_caps['displayName']}")
+```
+
+
+
+## Contributors
+
+We highly appreciate community contributions to make the list of MCP clients and their capabilities up to date.
+
+To add a new client or updated an existing one, simply edit the `src/mcp-clients.json` file
+and submit a pull request.
+
+Here are basic rules:
+- The pull request should contain some evidence to back existence of the MCP client capabilities, e.g. screenshot
+  from usage, link to source, or official docs.
+- Ideally, add or update just one MCP client per pull request
+
+### Development
+
+The build process includes validation to ensure the JSON matches the TypeScript interfaces.
 
 ```bash
-# Validate the JSON structure
-npm run validate
+# Validate the JSON file structure
+npm run test
 
 # Build the project (includes validation)
 npm run build
@@ -68,69 +236,19 @@ npm run build
 npm run example
 ```
 
-## Usage
+### API
 
-```typescript
-import { mcpClientCapabilities } from 'mcp-client-capabilities';
+#### Types
 
-// Access Claude Desktop capabilities
-const claudeDesktopCaps = mcpClientCapabilities['claude-desktop'];
-console.log(claudeDesktopCaps);
-
-// Check if a client supports specific features
-if (claudeDesktopCaps.tools?.listChanged) {
-  console.log('Claude Desktop supports tools list changes');
-}
-
-// List all available clients
-console.log('Available clients:', Object.keys(mcpClientCapabilities));
-
-// Access client metadata
-console.log('Client name:', claudeDesktopCaps.clientName);
-console.log('Display name:', claudeDesktopCaps.displayName);
-```
-
-## Multi-Language Support
-
-Since the capabilities are stored in JSON format, other programming languages can easily parse the `src/clients.json` file directly:
-
-### Python Example
-```python
-import json
-
-with open('src/clients.json', 'r') as f:
-    clients = json.load(f)
-
-claude_caps = clients['claude-desktop']
-print(f"Claude Desktop capabilities: {claude_caps}")
-print(f"Display name: {claude_caps['displayName']}")
-```
-
-### JavaScript (Node.js) Example
-```javascript
-const clients = require('./src/clients.json');
-
-const claudeCaps = clients['claude-desktop'];
-console.log('Claude Desktop capabilities:', claudeCaps);
-console.log('Display name:', claudeCaps.displayName);
-```
-
-## API
-
-### Types
-
-- `McpClientCapabilities` - Complete capability set for an MCP client with mandatory `clientName` and `displayName` fields
+- `McpClientRecord` - Complete capability set for an MCP client with mandatory `clientName`, `displayName`, and `url` fields
 - `ClientsIndex` - Type for the clients object structure
 
-### Exports
+#### Exports
 
 - `mcpClientCapabilities` - Object containing all client capabilities indexed by client name
 - All TypeScript interfaces from `types.ts`
 
-## Validation
+### Future work
 
-The project includes automatic validation to ensure the JSON structure matches the TypeScript interfaces. Run `npm run validate` to check the JSON file, or `npm run build` which includes validation as part of the build process.
-
-Required fields:
-- `clientName` - The actual client name specified in the `clientInfo` of the initialize MCP request
-- `displayName` - The display name of the client for user interfaces
+- Add all clients from https://modelcontextprotocol.io/clients#feature-support-matrix with accurate details
+- Create a public testing MCP server to probe the client capabilities

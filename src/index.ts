@@ -1,20 +1,20 @@
 /**
  * MCP Client Capabilities Index
- * 
+ *
  * Simple index of all MCP client capabilities loaded from JSON file.
  */
 
 export * from './types';
-import { McpClientCapabilities } from './types';
+import { McpClientRecord } from './types';
 
 // Import client capabilities from JSON
-import clientsData from './clients.json';
+import clientsData from './mcp-clients.json';
 
 /**
  * Type for the clients object structure
  */
 export type ClientsIndex = {
-  [clientName: string]: McpClientCapabilities;
+  [clientName: string]: McpClientRecord;
 };
 
 /**
