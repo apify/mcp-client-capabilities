@@ -196,7 +196,8 @@ console.log('Display name:', claudeClient.displayName);
 
 Since the capabilities are stored in JSON format, other programming languages can easily parse the `src/mcp-clients.json` file directly:
 
-### Python Example
+#### Python example
+
 ```python
 import json
 
@@ -220,6 +221,36 @@ and submit a pull request:
   from usage, link to its source code, or official docs.
 - Ideally, add or update just one MCP client per pull request, to make this more manageable.
 - Keep the clients in alphabetical order by their name.
+
+### Retrieving client information
+
+To easily retrieve the client name and version from an MCP initialize request for adding or updating client capabilities, you can use a simple setup with netcat and ngrok:
+
+1. Spawn a netcat listener: `nc -lvp 3001`
+2. Expose it to the internet via ngrok: `ngrok http 3001`
+3. Run the MCP client and connect to your ngrok URL
+
+In the netcat terminal, you will see the initialize request containing the client's information, such as:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 0,
+  "method": "initialize",
+  "params": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+      "sampling": {},
+      "elicitation": {},
+      "roots": { "listChanged": true }
+    },
+    "clientInfo": {
+      "name": "mcp-inspector",
+      "version": "0.16.5"
+    }
+  }
+}
+```
 
 ### Development
 
