@@ -8,49 +8,49 @@ import clientsData from './mcp-clients.json';
 /**
  * Validates that a client capability object matches the expected interface
  */
-function validateClientCapabilities(clientName: string, capabilities: any): capabilities is McpClientRecord {
+function validateClientCapabilities(clientName: string, record: any): record is McpClientRecord {
   const errors: string[] = [];
 
   // Check that it's an object
-  if (typeof capabilities !== 'object' || capabilities === null) {
+  if (typeof record !== 'object' || record === null) {
     errors.push(`${clientName}: must be an object`);
     return false;
   }
 
   // Check mandatory clientName field
-  if (!capabilities.clientName) {
-    errors.push(`${clientName}: missing required field 'clientName'`);
-  } else if (typeof capabilities.clientName !== 'string') {
-    errors.push(`${clientName}.clientName: must be a string`);
-  } else if (typeof capabilities.url !== 'string') {
+  if (!record.url) {
+    errors.push(`${clientName}: missing required field 'url'`);
+  } else if (typeof record.url !== 'string') {
     errors.push(`${clientName}.url: must be a string`);
-  } else if (typeof capabilities.protocolVersion !== 'string') {
+  } else if (!record.protocolVersion) {
+    errors.push(`${clientName}: missing required field 'protocolVersion'`);
+  } else if (typeof record.protocolVersion !== 'string') {
     errors.push(`${clientName}.protocolVersion: must be a string`);
   }
 
-  // Check mandatory displayName field
-  if (!capabilities.displayName) {
-    errors.push(`${clientName}: missing required field 'displayName'`);
-  } else if (typeof capabilities.displayName !== 'string') {
-    errors.push(`${clientName}.displayName: must be a string`);
+  // Check mandatory title field
+  if (!record.title) {
+    errors.push(`${clientName}: missing required field 'title'`);
+  } else if (typeof record.title !== 'string') {
+    errors.push(`${clientName}.title: must be a string`);
   }
 
   // Check optional properties
-  const validKeys = ['clientName', 'displayName', 'url', 'protocolVersion', 'completions', 'experimental', 'logging', 'prompts', 'resources', 'tools'];
-  for (const key of Object.keys(capabilities)) {
+  const validKeys = ['clientName', 'title', 'url', 'protocolVersion', 'completions', 'experimental', 'logging', 'prompts', 'resources', 'tools'];
+  for (const key of Object.keys(record)) {
     if (!validKeys.includes(key)) {
       errors.push(`${clientName}: unknown property '${key}'`);
     }
   }
 
   // Validate prompts capability
-  if (capabilities.prompts !== undefined) {
-    if (typeof capabilities.prompts !== 'object' || capabilities.prompts === null) {
+  if (record.prompts !== undefined) {
+    if (typeof record.prompts !== 'object' || record.prompts === null) {
       errors.push(`${clientName}.prompts: must be an object`);
     } else {
-      for (const key of Object.keys(capabilities.prompts)) {
+      for (const key of Object.keys(record.prompts)) {
         if (key === 'listChanged') {
-          if (typeof capabilities.prompts[key] !== 'boolean') {
+          if (typeof record.prompts[key] !== 'boolean') {
             errors.push(`${clientName}.prompts.listChanged: must be a boolean`);
           }
         } else {
@@ -61,13 +61,13 @@ function validateClientCapabilities(clientName: string, capabilities: any): capa
   }
 
   // Validate resources capability
-  if (capabilities.resources !== undefined) {
-    if (typeof capabilities.resources !== 'object' || capabilities.resources === null) {
+  if (record.resources !== undefined) {
+    if (typeof record.resources !== 'object' || record.resources === null) {
       errors.push(`${clientName}.resources: must be an object`);
     } else {
-      for (const key of Object.keys(capabilities.resources)) {
+      for (const key of Object.keys(record.resources)) {
         if (key === 'listChanged' || key === 'subscribe') {
-          if (typeof capabilities.resources[key] !== 'boolean') {
+          if (typeof record.resources[key] !== 'boolean') {
             errors.push(`${clientName}.resources.${key}: must be a boolean`);
           }
         } else {
@@ -78,13 +78,13 @@ function validateClientCapabilities(clientName: string, capabilities: any): capa
   }
 
   // Validate tools capability
-  if (capabilities.tools !== undefined) {
-    if (typeof capabilities.tools !== 'object' || capabilities.tools === null) {
+  if (record.tools !== undefined) {
+    if (typeof record.tools !== 'object' || record.tools === null) {
       errors.push(`${clientName}.tools: must be an object`);
     } else {
-      for (const key of Object.keys(capabilities.tools)) {
+      for (const key of Object.keys(record.tools)) {
         if (key === 'listChanged') {
-          if (typeof capabilities.tools[key] !== 'boolean') {
+          if (typeof record.tools[key] !== 'boolean') {
             errors.push(`${clientName}.tools.listChanged: must be a boolean`);
           }
         } else {
@@ -95,22 +95,22 @@ function validateClientCapabilities(clientName: string, capabilities: any): capa
   }
 
   // Validate completions capability (empty object)
-  if (capabilities.completions !== undefined) {
-    if (typeof capabilities.completions !== 'object' || capabilities.completions === null) {
+  if (record.completions !== undefined) {
+    if (typeof record.completions !== 'object' || record.completions === null) {
       errors.push(`${clientName}.completions: must be an object`);
     }
   }
 
   // Validate logging capability (empty object)
-  if (capabilities.logging !== undefined) {
-    if (typeof capabilities.logging !== 'object' || capabilities.logging === null) {
+  if (record.logging !== undefined) {
+    if (typeof record.logging !== 'object' || record.logging === null) {
       errors.push(`${clientName}.logging: must be an object`);
     }
   }
 
   // Validate experimental capability
-  if (capabilities.experimental !== undefined) {
-    if (typeof capabilities.experimental !== 'object' || capabilities.experimental === null) {
+  if (record.experimental !== undefined) {
+    if (typeof record.experimental !== 'object' || record.experimental === null) {
       errors.push(`${clientName}.experimental: must be an object`);
     }
   }

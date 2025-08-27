@@ -85,7 +85,7 @@ The JSON file contains an object where keys are client names and values an objec
   "<client-name>": {
 
     // Display name of the MCP client, e.g. "Example Client"
-    displayName: string,
+    title: string,
     
     // URL to the homepage of the client
     url: string,
@@ -178,8 +178,8 @@ if (claudeClient.tools?.listChanged) {
 console.log('Available clients:', Object.keys(mcpClients));
 
 // Access client metadata
-console.log('Client name:', claudeClient.clientName);
-console.log('Display name:', claudeClient.displayName);
+console.log('Client display name:', claudeClient.title);
+console.log('URL:', claudeClient.url);
 ```
 
 #### JavaScript example
@@ -189,7 +189,7 @@ const clients = require('./src/mcp-clients.json');
 
 const claudeClient = clients['claude-desktop'];
 console.log('Claude Desktop capabilities:', claudeClient);
-console.log('Display name:', claudeClient.displayName);
+console.log('Display name:', claudeClient.title);
 ```
 
 ### Python
@@ -206,7 +206,7 @@ with open('src/mcp-clients.json', 'r') as f:
 
 claude_caps = clients['claude-desktop']
 print(f"Claude Desktop capabilities: {claude_caps}")
-print(f"Display name: {claude_caps['displayName']}")
+print(f"Display name: {claude_caps['title']}")
 ```
 
 
@@ -230,7 +230,7 @@ To easily retrieve the client name and version from an MCP initialize request fo
 2. Expose it to the internet via ngrok: `ngrok http 3001`
 3. Run the MCP client and connect to your ngrok URL
 
-In the netcat terminal, you will see the initialize request containing the client's information, such as:
+In the netcat terminal, you will see the `initialize` request containing the client's information, such as:
 
 ```json
 {
@@ -271,7 +271,7 @@ npm run example
 
 #### Types
 
-- `McpClientRecord` - Complete capability set for an MCP client with mandatory `clientName`, `displayName`, and `url` fields
+- `McpClientRecord` - Complete capability set for an MCP client with mandatory `title` and `url` fields
 - `ClientsIndex` - Type for the clients object structure
 
 #### Exports

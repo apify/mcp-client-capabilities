@@ -1,7 +1,6 @@
 {
   "claude-desktop": {
-    "clientName": "claude-desktop",
-    "displayName": "Claude Desktop",
+    "title": "Claude Desktop",
     "url": "https://claude.ai/download",
     "protocolVersion": "2024-11-05",
     "prompts": {},
