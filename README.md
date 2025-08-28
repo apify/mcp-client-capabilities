@@ -165,6 +165,20 @@ If a new MCP client release introduces support for new server capabilities compa
 we strongly recommend the MCP clients to use a new client name to avoid confusing the servers
 and provide the best user and agent experience.
 
+### Clients supported
+
+> **Note:**
+>
+> We explicitly list the _Tools list changed_ support status for each client since it is an important feature for dynamic MCP servers like [Apify MCP Server](https://mcp.apify.com), where the tools can change dynamically based on client interactions. Sadly, not all clients support this feature as of now.
+
+| Display name | Client name | Tools list changed |
+| --- | --- | --- |
+| [Visual Studio Code](https://code.visualstudio.com/) | Visual Studio Code | ✅ |
+| [Claude Desktop / Connectors](https://claude.ai) | claude-ai | ❌ |
+| [Cursor Editor](https://cursor.com/) | cursor-vscode | ❌ |
+| [Windsurf Editor](https://windsurf.com/editor) | windsurf-client | ❌ |
+| [Amazon Q Developer CLI](https://aws.amazon.com/developer/learning/q-developer-cli/) | Q CLI | ✅ |
+| [Claude Code](https://www.anthropic.com/claude-code) | claude-code | ❌ |
 
 ## Usage
 
