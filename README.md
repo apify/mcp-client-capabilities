@@ -2,8 +2,12 @@
 
 This package strives to be the most up-to-date database of
 all [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) clients and their capabilities,
-to enable the MCP servers understand what features the clients support and how to respond to them
-in order to provide the best user and agent experience. In other words, this package is the programmatic version of
+to enable MCP servers understand what features an MCP client supports and how to respond to it
+in order to provide the best user and agent experience. 
+Unfortunately, the MCP protocol capability negotiation during the initial handshake
+is not sufficient for that—see [Background](#background) bellow for details. 
+
+In other words, this package is the programmatic version of
 the [community MCP clients](https://modelcontextprotocol.io/clients#feature-support-matrix) table.
 
 
