@@ -79,9 +79,9 @@ jobs:
                 id: commit
                 uses: EndBug/add-and-commit@v9
                 with:
-                    author_name: Apify Release Bot
-                    author_email: noreply@apify.com
-                    message: "chore(release): Update changelog, package.json and pyproject.toml versions [skip ci]"
+                   author_name: Apify Release Bot
+                   author_email: noreply@apify.com
+                   message: "chore(release): Update changelog, package.json and pyproject.toml versions [skip ci]"
     
     # Pypi publish
     unit_tests:
@@ -102,16 +102,46 @@ jobs:
           name: pypi
           url: https://pypi.org/project/mcp-client-capabilities
         steps:
-        - name: Prepare distribution
-          uses: apify/workflows/prepare-pypi-distribution@main
-          with:
-            ref: ${{ github.ref }}
-            package_name: mcp-client-capabilities
-            is_prerelease: ""
-            version_number: ${{ needs.release_metadata.outputs.version_number }}
-        # Publishes the package to PyPI using PyPA official GitHub action with OIDC authentication.
-        - name: Publish package to PyPI
-          uses: pypa/gh-action-pypi-publish@release/v1
+            -   uses: actions/checkout@v4
+                with:
+                    ref: ${{ needs.update_changelog.outputs.changelog_commitish }}
+            -   name: Verify commit SHA
+                run: |
+                    CURRENT_SHA=$(git rev-parse HEAD)
+                    EXPECTED_SHA="${{ needs.update_changelog.outputs.changelog_commitish }}"
+                    echo "Expected commit SHA: $EXPECTED_SHA"
+                    echo "Actual checked out SHA: $CURRENT_SHA"
+                    if [ "$EXPECTED_SHA" != "$CURRENT_SHA" ]; then
+                        echo "ERROR: Checked out SHA differs from expected!"
+                        exit 1
+                    else
+                        echo "✓ Commit SHA matches expected"
+                    fi
+            -   name: Verify pyproject.toml version
+                run: |
+                    EXPECTED_VERSION="${{ needs.release_metadata.outputs.version_number }}"
+                    ACTUAL_VERSION=$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/')
+
+                     echo "Expected version: $EXPECTED_VERSION"
+                     echo "Actual version in pyproject.toml: $ACTUAL_VERSION"
+                     echo "Current commit SHA: ${{ needs.update_changelog.outputs.changelog_commitish }}"
+
+                     if [ "$EXPECTED_VERSION" != "$ACTUAL_VERSION" ]; then
+                        echo "ERROR: Version mismatch! Expected $EXPECTED_VERSION but found $ACTUAL_VERSION in pyproject.toml"
+                        exit 1
+                     fi
+
+                     echo "✓ Version check passed: pyproject.toml has correct version $ACTUAL_VERSION"
+            - name: Prepare distribution
+              uses: apify/workflows/prepare-pypi-distribution@main
+              with:
+                ref: ${{ needs.update_changelog.outputs.changelog_commitish }}
+                package_name: mcp-client-capabilities
+                is_prerelease: ""
+                version_number: ${{ needs.release_metadata.outputs.version_number }}
+            # Publishes the package to PyPI using PyPA official GitHub action with OIDC authentication.
+            - name: Publish package to PyPI
+              uses: pypa/gh-action-pypi-publish@release/v1
 
     # NPM publish
     publish_to_npm:
