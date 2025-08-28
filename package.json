@@ -1,7 +1,7 @@
 {
   "name": "mcp-client-capabilities",
   "version": "0.0.2",
-  "description": "Index of all Model Context Protocol (MCP) server capabilities",
+  "description": "Index of all Model Context Protocol (MCP) clients and their capabilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
