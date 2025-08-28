@@ -1,4 +1,4 @@
-name: Validate Clients JSON
+name: Validate clients JSON and README table
 
 on: pull_request
 

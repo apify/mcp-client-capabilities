@@ -103,6 +103,7 @@ and provide the best user and agent experience.
 | [Claude Code](https://www.anthropic.com/claude-code) | claude-code | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Cursor Editor](https://cursor.com/) | cursor-vscode | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Visual Studio Code](https://code.visualstudio.com/) | Visual Studio Code | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Windsurf Editor](https://windsurf.com/editor) | windsurf-client | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 <!-- MCP_CLIENTS_TABLE_END -->
 
 ### Column explanations
