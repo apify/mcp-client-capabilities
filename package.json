@@ -14,7 +14,12 @@
     "start": "node dist/index.js",
     "example": "tsx src/example.ts"
   },
-  "keywords": ["mcp", "model-context-protocol", "capabilities", "index"],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "capabilities",
+    "index"
+  ],
   "author": "Apify",
   "license": "Apache-2.0",
   "devDependencies": {
