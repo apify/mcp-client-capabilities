@@ -3,7 +3,7 @@
  */
 
 import { McpClientRecord } from './types';
-import clientsData from './mcp-clients.json';
+import clientsData from './mcp_client_capabilities/mcp-clients.json';
 
 /**
  * Validates that a client capability object matches the expected interface

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.2](https://github.com/apify/mcp-client-capabilities/releases/tag/v0.0.2) (2025-08-28)
+
+### 🚀 Features
+
+- Add python package and update release ci for pypi ([4a9692a](https://github.com/apify/mcp-client-capabilities/commit/4a9692a2f93e94b5e541b6a5033aa9aa64f87a77))
+
 ## [0.0.1](https://github.com/apify/mcp-client-capabilities/releases/tag/v0.0.1) (2025-08-28)
 
 ### 🚀 Features

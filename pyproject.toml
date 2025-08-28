@@ -1,0 +1,16 @@
+[project]
+name = "mcp-client-capabilities"
+version = "0.0.2"
+description = "Index of all Model Context Protocol (MCP) server capabilities"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{name = "Apify"}]
+license = "Apache-2.0"
+dependencies = []
+
+[tool.setuptools]
+packages.find = {where = ["src"], include = ["mcp_client_capabilities*"]}
+package-data = {"mcp_client_capabilities" = ["*.json"]}
+
+[tool.uv]
+dev-dependencies = ["pytest>=8.0.0"]

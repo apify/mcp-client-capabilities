@@ -64,6 +64,10 @@ jobs:
             -   name: Update package version in package.json
                 run: npm version --no-git-tag-version --allow-same-version ${{ needs.release_metadata.outputs.version_number }}
 
+            -   name: Update version in pyproject.toml
+                run: |
+                  sed -i 's/^version = ".*"/version = "${{ needs.release_metadata.outputs.version_number }}"/' pyproject.toml
+
             -   name: Update CHANGELOG.md
                 uses: DamianReeves/write-file-action@master
                 with:
@@ -77,8 +81,39 @@ jobs:
                 with:
                     author_name: Apify Release Bot
                     author_email: noreply@apify.com
-                    message: "chore(release): Update changelog and package.json versions [skip ci]"
+                    message: "chore(release): Update changelog, package.json and pyproject.toml versions [skip ci]"
+    
+    # Pypi publish
+    unit_tests:
+      name: Unit tests
+      uses: apify/workflows/.github/workflows/python_unit_tests.yaml@main
+      with:
+        python-versions: '["3.12", "3.13"]'
+        os: '["ubuntu-latest"]'
 
+    publish_to_pypi:
+        name: Publish to PyPI
+        needs: [release_metadata, update_changelog, unit_tests]
+        runs-on: ubuntu-latest
+        permissions:
+          contents: write
+          id-token: write # Required for OIDC authentication.
+        environment:
+          name: pypi
+          url: https://pypi.org/project/mcp-client-capabilities
+        steps:
+        - name: Prepare distribution
+          uses: apify/workflows/prepare-pypi-distribution@main
+          with:
+            ref: ${{ github.ref }}
+            package_name: mcp-client-capabilities
+            is_prerelease: ""
+            version_number: ${{ needs.release_metadata.outputs.version_number }}
+        # Publishes the package to PyPI using PyPA official GitHub action with OIDC authentication.
+        - name: Publish package to PyPI
+          uses: pypa/gh-action-pypi-publish@release/v1
+
+    # NPM publish
     publish_to_npm:
         name: Publish to NPM
         needs: [ release_metadata, update_changelog ]

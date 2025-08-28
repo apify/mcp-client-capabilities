@@ -8,7 +8,7 @@ export * from './types';
 import { McpClientRecord } from './types';
 
 // Import client capabilities from JSON
-import clientsData from './mcp-clients.json';
+import clientsData from './mcp_client_capabilities/mcp-clients.json';
 
 /**
  * Type for the clients object structure
