@@ -83,17 +83,28 @@ jobs:
                    author_email: noreply@apify.com
                    message: "chore(release): Update changelog, package.json and pyproject.toml versions [skip ci]"
     
-    # Pypi publish
-    unit_tests:
-      name: Unit tests
-      uses: apify/workflows/.github/workflows/python_unit_tests.yaml@main
-      with:
-        python-versions: '["3.12", "3.13"]'
-        os: '["ubuntu-latest"]'
+    # Validate data and types
+    validate:
+        name: Validate
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout repository
+                uses: actions/checkout@v4
+            -   name: Use Node.js 22
+                uses: actions/setup-node@v4
+                with:
+                    node-version: 22
+                    cache: 'npm'
+                    cache-dependency-path: 'package-lock.json'
+            -   name: Install dependencies
+                run: npm ci
+            -   name: Run validation
+                run: npm run test
 
+    # Pypi publish
     publish_to_pypi:
         name: Publish to PyPI
-        needs: [release_metadata, update_changelog, unit_tests]
+        needs: [release_metadata, update_changelog, validate]
         runs-on: ubuntu-latest
         permissions:
           contents: write
@@ -146,7 +157,7 @@ jobs:
     # NPM publish
     publish_to_npm:
         name: Publish to NPM
-        needs: [ release_metadata, update_changelog ]
+        needs: [ release_metadata, update_changelog, validate ]
         runs-on: ubuntu-latest
         steps:
             -   uses: actions/checkout@v4
