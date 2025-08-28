@@ -22,71 +22,6 @@ npm install mcp-client-capabilities
 pip install mcp-client-capabilities
 ```
 
-## Background 
-
-When the MCP client [connects](https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle) to an MCP server,
-it MUST send it an `initialize` request such as:
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "initialize",
-  "params": {
-    "protocolVersion": "2024-11-05",
-    "capabilities": {
-      "roots": { "listChanged": true },
-      "sampling": {},
-      "elicitation": {}
-    },
-    "clientInfo": {
-      "name": "ExampleClient",
-      "title": "Example Client Display Name",
-      "version": "1.0.0"
-    }
-  }
-}
-```
-
-The MCP server MUST then respond with a message like:
-
-```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "protocolVersion": "2024-11-05",
-    "capabilities": {
-      "logging": {},
-      "prompts": { "listChanged": true },
-      "resources": { "subscribe": true, "listChanged": true },
-      "tools": { "listChanged": true }
-    },
-    "serverInfo": {
-      "name": "ExampleServer",
-      "title": "Example Server Display Name",
-      "version": "1.0.0"
-    },
-    "instructions": "Optional instructions for the client"
-  }
-}
-```
-
-Unfortunately, this [capability negotiation](https://modelcontextprotocol.io/specification/2025-06-18/architecture#capability-negotiation)
-is not sufficient for MCP servers to fully understand what features a client supports.
-For example, the server will not know if the client supports dynamic tool discovery via the `notifications/tools/list_changed` notification,
-or whether it applies the initial server `instructions` to the model context. But this information is crucial for servers to
-understand what interface they can provide to clients, e.g. whether they should provide alternative tools for dynamic discovery and calling,
-or stuff the instructions into the tool descriptions instead.
-
-This limitation of MCP leads to the "lowest common denominator" approach, where servers adopt only basic MCP
-features they can be certain most clients support. Ultimately this leads to the stagnation of the MCP protocol,
-where neither servers nor clients have motivation to adopt latest protocol features.
-
-While there are MCP standard proposals such as [SEP-1381](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1381)
-to address this problem on the protocol level, these will take time to be approved and widely adopted by MCP clients.
-Therefore, we're releasing this package with a hope to accelerate the development of the MCP ecosystem.
-
 ## How it works
 
 This package provides a JSON file called `src/mcp-clients.json` that lists all known MCP clients, their metadata and capabilities.
@@ -225,6 +160,72 @@ claude_client = mcp_clients['claude-desktop']
 print('Claude Desktop capabilities:', claude_client)
 print('Display name:', claude_client['title'])
 ```
+
+
+## Background
+
+When the MCP client [connects](https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle) to an MCP server,
+it MUST send it an `initialize` request such as:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "initialize",
+  "params": {
+    "protocolVersion": "2024-11-05",
+    "capabilities": {
+      "roots": { "listChanged": true },
+      "sampling": {},
+      "elicitation": {}
+    },
+    "clientInfo": {
+      "name": "ExampleClient",
+      "title": "Example Client Display Name",
+      "version": "1.0.0"
+    }
+  }
+}
+```
+
+The MCP server MUST then respond with a message like:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "protocolVersion": "2024-11-05",
+    "capabilities": {
+      "logging": {},
+      "prompts": { "listChanged": true },
+      "resources": { "subscribe": true, "listChanged": true },
+      "tools": { "listChanged": true }
+    },
+    "serverInfo": {
+      "name": "ExampleServer",
+      "title": "Example Server Display Name",
+      "version": "1.0.0"
+    },
+    "instructions": "Optional instructions for the client"
+  }
+}
+```
+
+Unfortunately, this [capability negotiation](https://modelcontextprotocol.io/specification/2025-06-18/architecture#capability-negotiation)
+is not sufficient for MCP servers to fully understand what features a client supports.
+For example, the server will not know if the client supports dynamic tool discovery via the `notifications/tools/list_changed` notification,
+or whether it applies the initial server `instructions` to the model context. But this information is crucial for servers to
+understand what interface they can provide to clients, e.g. whether they should provide alternative tools for dynamic discovery and calling,
+or stuff the instructions into the tool descriptions instead.
+
+This limitation of MCP leads to the "lowest common denominator" approach, where servers adopt only basic MCP
+features they can be certain most clients support. Ultimately this leads to the stagnation of the MCP protocol,
+where neither servers nor clients have motivation to adopt latest protocol features.
+
+While there are MCP standard proposals such as [SEP-1381](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1381)
+to address this problem on the protocol level, these will take time to be approved and widely adopted by MCP clients.
+Therefore, we're releasing this package with a hope to accelerate the development of the MCP ecosystem.
 
 
 ## Contributors
