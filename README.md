@@ -6,6 +6,22 @@ to enable the MCP servers understand what features the clients support and how t
 in order to provide the best user and agent experience. In other words, this package is the programmatic version of
 the [community MCP clients](https://modelcontextprotocol.io/clients#feature-support-matrix) table.
 
+## Installation
+
+This package is available as both an NPM package and a Python PyPI package.
+
+### NPM
+
+```bash
+npm install mcp-client-capabilities
+```
+
+### Python
+
+```bash
+pip install mcp-client-capabilities
+```
+
 ## Background 
 
 When the MCP client [connects](https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle) to an MCP server,
@@ -152,7 +168,7 @@ and provide the best user and agent experience.
 
 ## Usage
 
-### Node.js 
+### Node.js
 
 Install the NPM package by running:
 
@@ -194,19 +210,20 @@ console.log('Display name:', claudeClient.title);
 
 ### Python
 
-Since the capabilities are stored in JSON format, other programming languages can easily parse the `src/mcp-clients.json` file directly:
+Install the PyPI package by running:
+
+```bash
+pip install mcp-client-capabilities
+```
 
 #### Python example
 
 ```python
-import json
+from mcp_client_capabilities import mcp_clients
 
-with open('src/mcp-clients.json', 'r') as f:
-    clients = json.load(f)
-
-claude_caps = clients['claude-desktop']
-print(f"Claude Desktop capabilities: {claude_caps}")
-print(f"Display name: {claude_caps['title']}")
+claude_client = mcp_clients['claude-desktop']
+print('Claude Desktop capabilities:', claude_client)
+print('Display name:', claude_client['title'])
 ```
 
 
