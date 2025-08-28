@@ -6,25 +6,10 @@ to enable the MCP servers understand what features the clients support and how t
 in order to provide the best user and agent experience. In other words, this package is the programmatic version of
 the [community MCP clients](https://modelcontextprotocol.io/clients#feature-support-matrix) table.
 
-## Installation
-
-This package is available as both an NPM package and a Python PyPI package.
-
-### NPM
-
-```bash
-npm install mcp-client-capabilities
-```
-
-### Python
-
-```bash
-pip install mcp-client-capabilities
-```
 
 ## How it works
 
-This package provides a JSON file called `src/mcp-clients.json` that lists all known MCP clients, their metadata and capabilities.
+This package provides a JSON file called `mcp-clients.json` that lists all known MCP clients, their metadata and capabilities.
 It's a single JSON file to make it easy for multiple programming languages to access the data while enabling TypeScript type safety
 for the NPM package.
 
@@ -100,12 +85,11 @@ If a new MCP client release introduces support for new server capabilities compa
 we strongly recommend the MCP clients to use a new client name to avoid confusing the servers
 and provide the best user and agent experience.
 
-
 ## Usage
 
 ### Node.js
 
-Install the NPM package by running:
+Install the [NPM package](https://www.npmjs.com/package/mcp-client-capabilities) by running:
 
 ```bash
 npm install mcp-client-capabilities
@@ -145,7 +129,7 @@ console.log('Display name:', claudeClient.title);
 
 ### Python
 
-Install the PyPI package by running:
+Install the [PyPI package](https://pypi.org/project/mcp-client-capabilities/) by running:
 
 ```bash
 pip install mcp-client-capabilities
@@ -161,11 +145,17 @@ print('Claude Desktop capabilities:', claude_client)
 print('Display name:', claude_client['title'])
 ```
 
+### Other languages
+
+You can fetch the raw `mcp-clients.json` file from the following URL:
+
+https://raw.githubusercontent.com/apify/mcp-client-capabilities/refs/heads/master/src/mcp_client_capabilities/mcp-clients.json
+
 
 ## Background
 
 When the MCP client [connects](https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle) to an MCP server,
-it MUST send it an `initialize` request such as:
+it must send it an `initialize` request such as:
 
 ```json
 {
@@ -188,7 +178,7 @@ it MUST send it an `initialize` request such as:
 }
 ```
 
-The MCP server MUST then respond with a message like:
+The MCP server must then respond with a message like:
 
 ```json
 {
@@ -230,15 +220,29 @@ Therefore, we're releasing this package with a hope to accelerate the developmen
 
 ## Contributors
 
-We highly appreciate community contributions to make the list of MCP clients and their capabilities up to date.
-
-To add a new client or updated an existing one, simply edit the `src/mcp-clients.json` file
+We highly appreciate community contributions to make the list of MCP clients and their capabilities
+complete and up to date. To add a new client or updated an existing one, simply edit the `src/mcp-clients.json` file
 and submit a pull request:
 
 - The pull request should contain some evidence to back up the existence of the MCP client capabilities, e.g. screenshot
   from usage, link to its source code, or official docs.
 - Ideally, add or update just one MCP client per pull request, to make this more manageable.
 - Keep the clients in alphabetical order by their name.
+
+### Development
+
+The build process includes validation to ensure the JSON matches the TypeScript interfaces.
+
+```bash
+# Validate the JSON file structure
+npm run test
+
+# Build the project (includes validation)
+npm run build
+
+# Run example
+npm run example
+```
 
 ### Retrieving client information
 
@@ -270,21 +274,6 @@ In the netcat terminal, you will see the `initialize` request containing the cli
 }
 ```
 
-### Development
-
-The build process includes validation to ensure the JSON matches the TypeScript interfaces.
-
-```bash
-# Validate the JSON file structure
-npm run test
-
-# Build the project (includes validation)
-npm run build
-
-# Run example
-npm run example
-```
-
 ### API
 
 #### Types
@@ -300,4 +289,5 @@ npm run example
 ### Future work
 
 - Add all clients from https://modelcontextprotocol.io/clients#feature-support-matrix with accurate details
+- Add SDK for Python
 - Create a public testing MCP server to probe the client capabilities
