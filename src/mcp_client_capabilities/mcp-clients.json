@@ -1,53 +1,53 @@
 {
   "claude-ai": {
+    "prompts": {},
+    "protocolVersion": "2025-06-18",
+    "resources": {},
     "title": "Claude AI",
-    "url": "https://claude.ai",
-    "protocolVersion": "2025-06-18",
-    "prompts": {},
-    "resources": {},
-    "tools": {}
-  },
-  "Visual Studio Code": {
-    "title": "Visual Studio Code",
-    "url": "https://code.visualstudio.com/",
-    "protocolVersion": "2025-06-18",
-    "prompts": {},
-    "resources": {},
-    "tools": {
-      "listChanged": true
-    }
-  },
-  "cursor-vscode": {
-    "title": "Cursor Editor",
-    "url": "https://cursor.com/",
-    "protocolVersion": "2025-06-18",
-    "prompts": {},
-    "resources": {},
-    "tools": {}
-  },
-  "windsurf-client": {
-    "title": "Windsurf Editor",
-    "url": "https://windsurf.com/editor",
-    "protocolVersion": "2025-03-26",
-    "prompts": {},
-    "resources": {},
-    "tools": {}
-  },
-  "Q CLI": {
-    "title": "Amazon Q Developer CLI",
-    "url": "https://aws.amazon.com/developer/learning/q-developer-cli/",
-    "protocolVersion": "2.0",
-    "prompts": {},
-    "tools": {
-      "listChanged": true
-    }
+    "tools": {},
+    "url": "https://claude.ai"
   },
   "claude-code": {
-    "title": "Claude Code",
-    "url": "https://www.anthropic.com/claude-code",
-    "protocolVersion": "2025-06-18",
     "prompts": {},
+    "protocolVersion": "2025-06-18",
     "resources": {},
-    "tools": {}
+    "title": "Claude Code",
+    "tools": {},
+    "url": "https://www.anthropic.com/claude-code"
+  },
+  "cursor-vscode": {
+    "prompts": {},
+    "protocolVersion": "2025-06-18",
+    "resources": {},
+    "title": "Cursor Editor",
+    "tools": {},
+    "url": "https://cursor.com/"
+  },
+  "Q CLI": {
+    "prompts": {},
+    "protocolVersion": "2.0",
+    "title": "Amazon Q Developer CLI",
+    "tools": {
+      "listChanged": true
+    },
+    "url": "https://aws.amazon.com/developer/learning/q-developer-cli/"
+  },
+  "Visual Studio Code": {
+    "prompts": {},
+    "protocolVersion": "2025-06-18",
+    "resources": {},
+    "title": "Visual Studio Code",
+    "tools": {
+      "listChanged": true
+    },
+    "url": "https://code.visualstudio.com/"
+  },
+  "windsurf-client": {
+    "prompts": {},
+    "protocolVersion": "2025-03-26",
+    "resources": {},
+    "title": "Windsurf Editor",
+    "tools": {},
+    "url": "https://windsurf.com/editor"
   }
 }

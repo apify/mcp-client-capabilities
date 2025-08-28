@@ -14,3 +14,13 @@ jobs:
           cache-dependency-path: 'package-lock.json'
       - run: npm ci
       - run: npm run test
+      - name: Check JSON sorting
+        run: |
+          npm run sort
+          if ! git diff --quiet src/mcp_client_capabilities/mcp-clients.json; then
+            echo "❌ JSON is not sorted! Please run 'npm run sort' locally and commit the changes."
+            git diff src/mcp_client_capabilities/mcp-clients.json
+            exit 1
+          else
+            echo "✅ JSON is properly sorted"
+          fi

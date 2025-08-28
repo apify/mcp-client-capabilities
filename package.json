@@ -12,7 +12,9 @@
     "build": "npm run test && tsc",
     "test": "tsx src/validate.ts",
     "start": "node dist/index.js",
-    "example": "tsx src/example.ts"
+    "example": "tsx src/example.ts",
+    "sort": "jq 'to_entries | sort_by(.key | ascii_downcase) | from_entries' src/mcp_client_capabilities/mcp-clients.json > temp.json && mv temp.json src/mcp_client_capabilities/mcp-clients.json",
+    "generate-table": "node scripts/generate-table.js"
   },
   "keywords": [
     "mcp",

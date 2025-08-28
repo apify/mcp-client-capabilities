@@ -171,14 +171,26 @@ and provide the best user and agent experience.
 >
 > We explicitly list the _Tools list changed_ support status for each client since it is an important feature for dynamic MCP servers like [Apify MCP Server](https://mcp.apify.com), where the tools can change dynamically based on client interactions. Sadly, not all clients support this feature as of now.
 
-| Display name | Client name | Tools list changed |
-| --- | --- | --- |
-| [Visual Studio Code](https://code.visualstudio.com/) | Visual Studio Code | ✅ |
-| [Claude Desktop / Connectors](https://claude.ai) | claude-ai | ❌ |
-| [Cursor Editor](https://cursor.com/) | cursor-vscode | ❌ |
-| [Windsurf Editor](https://windsurf.com/editor) | windsurf-client | ❌ |
-| [Amazon Q Developer CLI](https://aws.amazon.com/developer/learning/q-developer-cli/) | Q CLI | ✅ |
-| [Claude Code](https://www.anthropic.com/claude-code) | claude-code | ❌ |
+<!-- MCP_CLIENTS_TABLE_START -->
+| Display name | Client name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Roots](#roots) | [Elicitation](#elicitation) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Amazon Q Developer CLI](https://aws.amazon.com/developer/learning/q-developer-cli/) | Q CLI | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Claude AI](https://claude.ai) | claude-ai | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Claude Code](https://www.anthropic.com/claude-code) | claude-code | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Cursor Editor](https://cursor.com/) | cursor-vscode | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Visual Studio Code](https://code.visualstudio.com/) | Visual Studio Code | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Windsurf Editor](https://windsurf.com/editor) | windsurf-client | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+<!-- MCP_CLIENTS_TABLE_END -->
+
+### Column explanations
+
+- <a name="resources"></a>**Resources**: Whether the client supports accessing server resources. Resources allow clients to browse and interact with files, databases, or other data provided by the MCP server.
+- <a name="prompts"></a>**Prompts**: Whether the client supports accessing server prompts. Prompts are reusable prompt templates that can be invoked by clients to get structured responses from the server.
+- <a name="tools"></a>**Tools**: Whether the client supports accessing server tools. Tools are functions that clients can invoke to perform actions on the server side.
+- <a name="discovery"></a>**Discovery**: Whether the client supports dynamic tool discovery via `notifications/tools/list_changed` notifications. This allows tools to be added/removed while the connection is active.
+- <a name="sampling"></a>**Sampling**: Whether the client supports sampling from an LLM. This allows the server to request the client to generate text using its language model.
+- <a name="roots"></a>**Roots**: Whether the client supports managing root directories. Roots define the workspace or directories that the client wants the server to have access to.
+- <a name="elicitation"></a>**Elicitation**: Whether the client supports elicitation from the server. This allows the server to request additional information or clarification from the client during interactions.
 
 ## Usage
 
