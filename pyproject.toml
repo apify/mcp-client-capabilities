@@ -1,6 +1,6 @@
 [project]
 name = "mcp-client-capabilities"
-version = "0.0.1"
+version = "0.0.2"
 description = "Index of all Model Context Protocol (MCP) server capabilities"
 readme = "README.md"
 requires-python = ">=3.12"
