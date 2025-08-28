@@ -15,14 +15,6 @@
     "tools": {},
     "url": "https://www.anthropic.com/claude-code"
   },
-  "cursor-vscode": {
-    "prompts": {},
-    "protocolVersion": "2025-06-18",
-    "resources": {},
-    "title": "Cursor Editor",
-    "tools": {},
-    "url": "https://cursor.com/"
-  },
   "Q CLI": {
     "prompts": {},
     "protocolVersion": "2.0",
@@ -31,6 +23,14 @@
       "listChanged": true
     },
     "url": "https://aws.amazon.com/developer/learning/q-developer-cli/"
+  },
+  "cursor-vscode": {
+    "prompts": {},
+    "protocolVersion": "2025-06-18",
+    "resources": {},
+    "title": "Cursor Editor",
+    "tools": {},
+    "url": "https://cursor.com/"
   },
   "Visual Studio Code": {
     "prompts": {},
