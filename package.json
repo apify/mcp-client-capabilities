@@ -4,18 +4,22 @@
   "description": "Index of all Model Context Protocol (MCP) server capabilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "npm run test && tsc",
-    "test": "ts-node src/validate.ts",
+    "test": "tsx src/validate.ts",
     "start": "node dist/index.js",
-    "example": "ts-node src/example.ts"
+    "example": "tsx src/example.ts"
   },
   "keywords": ["mcp", "model-context-protocol", "capabilities", "index"],
-  "author": "",
+  "author": "Apify",
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/node": "^24.3.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "tsx": "^4.20.5"
   }
 }
