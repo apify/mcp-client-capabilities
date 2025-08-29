@@ -127,31 +127,25 @@ npm install mcp-client-capabilities
 ```typescript
 import { mcpClients } from 'mcp-client-capabilities';
 
-// Access Claude Desktop capabilities
-const claudeClient = mcpClients['claude-desktop'];
-console.log(claudeClient);
-
-// Check if a client supports specific features
-if (claudeClient.tools?.listChanged) {
-  console.log('Claude Desktop supports tools list changes');
-}
+const claudeClient = mcpClients['claude-ai'];
+console.log('Claude AI metadata and capabilities:', claudeClient);
+console.log('Display name:', claudeClient.title);
 
 // List all available clients
 console.log('Available clients:', Object.keys(mcpClients));
-
-// Access client metadata
-console.log('Client display name:', claudeClient.title);
-console.log('URL:', claudeClient.url);
 ```
 
 #### JavaScript example
 
 ```javascript
-const clients = require('./src/mcp-clients.json');
+const { mcpClients } = require('mcp-client-capabilities');
 
-const claudeClient = clients['claude-desktop'];
-console.log('Claude Desktop capabilities:', claudeClient);
+const claudeClient = mcpClients['claude-ai'];
+console.log('Claude AI metadata and capabilities:', claudeClient);
 console.log('Display name:', claudeClient.title);
+
+// List all available clients
+console.log('Available clients:', Object.keys(mcpClients));
 ```
 
 ### Python
@@ -167,9 +161,12 @@ pip install mcp-client-capabilities
 ```python
 from mcp_client_capabilities import mcp_clients
 
-claude_client = mcp_clients['claude-desktop']
-print('Claude Desktop capabilities:', claude_client)
+claude_client = mcp_clients['claude-ai']
+print('Claude AI metadata and capabilities:', claude_client)
 print('Display name:', claude_client['title'])
+
+# List all available clients
+print('Available clients:', mcp_clients.keys())
 ```
 
 ### Other languages
