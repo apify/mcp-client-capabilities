@@ -91,10 +91,6 @@ and provide the best user and agent experience.
 
 ### Clients supported
 
-> **Note:**
->
-> We explicitly list the _Tools list changed_ support status for each client since it is an important feature for dynamic MCP servers like [Apify MCP Server](https://mcp.apify.com), where the tools can change dynamically based on client interactions. Sadly, not all clients support this feature as of now.
-
 <!-- MCP_CLIENTS_TABLE_START -->
 | Display name | Client name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Roots](#roots) | [Elicitation](#elicitation) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
