@@ -1,10 +1,53 @@
 {
-  "claude-desktop": {
-    "title": "Claude Desktop",
-    "url": "https://claude.ai/download",
-    "protocolVersion": "2024-11-05",
+  "claude-ai": {
     "prompts": {},
+    "protocolVersion": "2025-06-18",
     "resources": {},
-    "tools": {}
+    "title": "Claude AI",
+    "tools": {},
+    "url": "https://claude.ai"
+  },
+  "claude-code": {
+    "prompts": {},
+    "protocolVersion": "2025-06-18",
+    "resources": {},
+    "title": "Claude Code",
+    "tools": {},
+    "url": "https://www.anthropic.com/claude-code"
+  },
+  "cursor-vscode": {
+    "prompts": {},
+    "protocolVersion": "2025-06-18",
+    "resources": {},
+    "title": "Cursor Editor",
+    "tools": {},
+    "url": "https://cursor.com/"
+  },
+  "Q CLI": {
+    "prompts": {},
+    "protocolVersion": "2.0",
+    "title": "Amazon Q Developer CLI",
+    "tools": {
+      "listChanged": true
+    },
+    "url": "https://aws.amazon.com/developer/learning/q-developer-cli/"
+  },
+  "Visual Studio Code": {
+    "prompts": {},
+    "protocolVersion": "2025-06-18",
+    "resources": {},
+    "title": "Visual Studio Code",
+    "tools": {
+      "listChanged": true
+    },
+    "url": "https://code.visualstudio.com/"
+  },
+  "windsurf-client": {
+    "prompts": {},
+    "protocolVersion": "2025-03-26",
+    "resources": {},
+    "title": "Windsurf Editor",
+    "tools": {},
+    "url": "https://windsurf.com/editor"
   }
 }

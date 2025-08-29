@@ -5,4 +5,4 @@ build:
 	uv build
 
 unit-tests:
-	uv run python src/mcp_client_capabilities/validate.py
+	@echo "Unit tests moved to npm run test"

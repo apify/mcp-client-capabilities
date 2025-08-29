@@ -1,9 +1,11 @@
-name: Validate Clients JSON
+name: Check
 
-on: pull_request
+on:
+  pull_request:
 
 jobs:
   validate:
+    name: Validate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,3 +16,23 @@ jobs:
           cache-dependency-path: 'package-lock.json'
       - run: npm ci
       - run: npm run test
+      - name: Check JSON sorting
+        run: |
+          npm run sort
+          if ! git diff --quiet src/mcp_client_capabilities/mcp-clients.json; then
+            echo "❌ JSON is not sorted! Please run 'npm run sort' locally and commit the changes."
+            git diff src/mcp_client_capabilities/mcp-clients.json
+            exit 1
+          else
+            echo "✅ JSON is properly sorted"
+          fi
+      - name: Check README table
+        run: |
+          npm run generate-table
+          if ! git diff --quiet README.md; then
+            echo "❌ README table is not up to date! Please run 'npm run generate-table' locally and commit the changes."
+            git diff README.md
+            exit 1
+          else
+            echo "✅ README table is up to date"
+          fi
