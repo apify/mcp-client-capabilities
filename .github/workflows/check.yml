@@ -2,12 +2,10 @@ name: Validate
 
 on:
   pull_request:
-  push:
-    branches-ignore:
-      - master
 
 jobs:
   validate:
+    name: Validate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
