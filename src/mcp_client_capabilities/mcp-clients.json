@@ -23,6 +23,14 @@
     "tools": {},
     "url": "https://cursor.com/"
   },
+  "opencode": {
+    "protocolVersion": "2025-06-18",
+    "title": "Opencode",
+    "tools": {
+      "listChanged": true
+    },
+    "url": "https://opencode.ai/"
+  },
   "Q CLI": {
     "prompts": {},
     "protocolVersion": "2.0",
