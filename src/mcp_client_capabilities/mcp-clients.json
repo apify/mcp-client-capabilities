@@ -1,4 +1,12 @@
 {
+  "apify-mcp-client": {
+    "protocolVersion": "2025-06-18",
+    "title": "Apify MCP Client",
+    "tools": {
+      "listChanged": true
+    },
+    "url": "https://apify.com/jiri.spilka/tester-mcp-client"
+  },
   "claude-ai": {
     "prompts": {},
     "protocolVersion": "2025-06-18",
