@@ -95,6 +95,7 @@ and provide the best user and agent experience.
 | Display name | Client name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Roots](#roots) | [Elicitation](#elicitation) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Amazon Q Developer CLI](https://aws.amazon.com/developer/learning/q-developer-cli/) | Q CLI | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Apify MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) | apify-mcp-client | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Claude AI](https://claude.ai) | claude-ai | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Claude Code](https://www.anthropic.com/claude-code) | claude-code | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Cursor Editor](https://cursor.com/) | cursor-vscode | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
