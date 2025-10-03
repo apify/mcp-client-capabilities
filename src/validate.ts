@@ -35,8 +35,8 @@ function validateClientCapabilities(clientName: string, record: any): record is 
     errors.push(`${clientName}.title: must be a string`);
   }
 
-  // Check optional properties
-  const validKeys = ['clientName', 'title', 'url', 'protocolVersion', 'completions', 'experimental', 'logging', 'prompts', 'resources', 'tools'];
+   // Check optional properties
+   const validKeys = ['clientName', 'title', 'url', 'protocolVersion', 'completions', 'experimental', 'logging', 'prompts', 'resources', 'tools', 'elicitation', 'sampling', 'roots'];
   for (const key of Object.keys(record)) {
     if (!validKeys.includes(key)) {
       errors.push(`${clientName}: unknown property '${key}'`);
@@ -101,14 +101,45 @@ function validateClientCapabilities(clientName: string, record: any): record is 
     }
   }
 
-  // Validate logging capability (empty object)
-  if (record.logging !== undefined) {
-    if (typeof record.logging !== 'object' || record.logging === null) {
-      errors.push(`${clientName}.logging: must be an object`);
-    }
-  }
+   // Validate logging capability (empty object)
+   if (record.logging !== undefined) {
+     if (typeof record.logging !== 'object' || record.logging === null) {
+       errors.push(`${clientName}.logging: must be an object`);
+     }
+   }
 
-  // Validate experimental capability
+   // Validate elicitation capability (empty object)
+   if (record.elicitation !== undefined) {
+     if (typeof record.elicitation !== 'object' || record.elicitation === null) {
+       errors.push(`${clientName}.elicitation: must be an object`);
+     }
+   }
+
+   // Validate sampling capability (empty object)
+   if (record.sampling !== undefined) {
+     if (typeof record.sampling !== 'object' || record.sampling === null) {
+       errors.push(`${clientName}.sampling: must be an object`);
+     }
+   }
+
+   // Validate roots capability
+   if (record.roots !== undefined) {
+     if (typeof record.roots !== 'object' || record.roots === null) {
+       errors.push(`${clientName}.roots: must be an object`);
+     } else {
+       for (const key of Object.keys(record.roots)) {
+         if (key === 'listChanged') {
+           if (typeof record.roots[key] !== 'boolean') {
+             errors.push(`${clientName}.roots.listChanged: must be a boolean`);
+           }
+         } else {
+           errors.push(`${clientName}.roots: unknown property '${key}'`);
+         }
+       }
+     }
+   }
+
+   // Validate experimental capability
   if (record.experimental !== undefined) {
     if (typeof record.experimental !== 'object' || record.experimental === null) {
       errors.push(`${clientName}.experimental: must be an object`);
