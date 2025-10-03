@@ -59,7 +59,7 @@
     "resources": {},
     "sampling": {},
     "roots": {},
-    "ellicitation": {},
+    "elicitation": {},
     "title": "Visual Studio Code",
     "tools": {
       "listChanged": true
