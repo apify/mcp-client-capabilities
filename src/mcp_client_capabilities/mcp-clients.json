@@ -18,6 +18,7 @@
   "claude-code": {
     "prompts": {},
     "protocolVersion": "2025-06-18",
+    "roots": {},
     "resources": {},
     "title": "Claude Code",
     "tools": {},
@@ -28,6 +29,7 @@
     "prompts": {},
     "protocolVersion": "2025-06-18",
     "resources": {},
+    "roots": {},
     "title": "Cursor Editor",
     "tools": {
       "listChanged": true
@@ -55,6 +57,9 @@
     "prompts": {},
     "protocolVersion": "2025-06-18",
     "resources": {},
+    "sampling": {},
+    "roots": {},
+    "ellicitation": {},
     "title": "Visual Studio Code",
     "tools": {
       "listChanged": true
