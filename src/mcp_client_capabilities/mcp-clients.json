@@ -24,11 +24,14 @@
     "url": "https://www.anthropic.com/claude-code"
   },
   "cursor-vscode": {
+    "elicitation": {},
     "prompts": {},
     "protocolVersion": "2025-06-18",
     "resources": {},
     "title": "Cursor Editor",
-    "tools": {},
+    "tools": { 
+      "listChanged": true
+    },
     "url": "https://cursor.com/"
   },
   "opencode": {
