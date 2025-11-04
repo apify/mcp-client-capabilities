@@ -1,4 +1,11 @@
 {
+  "@librechat/api-client": {
+    "protocolVersion": "2025-06-18",
+    "title": "LibreChat",
+    "tools": {},
+    "resources": {},
+    "url": "https://www.librechat.ai"
+  },
   "apify-mcp-client": {
     "protocolVersion": "2025-06-18",
     "title": "Apify MCP Client",
