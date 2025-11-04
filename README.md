@@ -99,6 +99,7 @@ and provide the best user and agent experience.
 | [Claude AI](https://claude.ai) | claude-ai | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Claude Code](https://www.anthropic.com/claude-code) | claude-code | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | [Cursor Editor](https://cursor.com/) | cursor-vscode | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| [LibreChat](https://www.librechat.ai) | @librechat/api-client | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Opencode](https://opencode.ai/) | opencode | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Visual Studio Code](https://code.visualstudio.com/) | Visual Studio Code | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [Windsurf Editor](https://windsurf.com/editor) | windsurf-client | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
