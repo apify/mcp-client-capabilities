@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.8](https://github.com/apify/mcp-client-capabilities/releases/tag/v0.0.8) (2025-11-04)
+
+### 🚀 Features
+
+- Implementation ([134832e](https://github.com/apify/mcp-client-capabilities/commit/134832ea813b627d30bb9dcd5281473cf6d71e1a)) by [@MQ37](https://github.com/MQ37)
+- Add python package and update release ci for pypi ([#7](https://github.com/apify/mcp-client-capabilities/pull/7)) ([a8efe36](https://github.com/apify/mcp-client-capabilities/commit/a8efe36a3c516bfd1e8ef09465997562466e4c2a)) by [@MQ37](https://github.com/MQ37)
+- Add mcp clients ([#8](https://github.com/apify/mcp-client-capabilities/pull/8)) ([9203d5c](https://github.com/apify/mcp-client-capabilities/commit/9203d5c58342be765515c5e22a6cf85dd446b110)) by [@MQ37](https://github.com/MQ37)
+- Add opencode ([#13](https://github.com/apify/mcp-client-capabilities/pull/13)) ([5672c67](https://github.com/apify/mcp-client-capabilities/commit/5672c67e064c8e530cc38c536902f5726adfedbc)) by [@MQ37](https://github.com/MQ37)
+- Add apify-mcp-server ([#15](https://github.com/apify/mcp-client-capabilities/pull/15)) ([a21ac56](https://github.com/apify/mcp-client-capabilities/commit/a21ac56be952196af6c29acc9f55b33320026908)) by [@MQ37](https://github.com/MQ37)
+- Update client info for roots, sampling, elicitation ([#18](https://github.com/apify/mcp-client-capabilities/pull/18)) ([5a84367](https://github.com/apify/mcp-client-capabilities/commit/5a8436733ae2e8f6d147fa8ba08ab57a3afb65b7)) by [@MQ37](https://github.com/MQ37)
+- Add librechat client ([#20](https://github.com/apify/mcp-client-capabilities/pull/20)) ([03011d0](https://github.com/apify/mcp-client-capabilities/commit/03011d07f7d964c196bd6784defb1e9698b18163)) by [@MQ37](https://github.com/MQ37)
+
+
 ## [0.0.7](https://github.com/apify/mcp-client-capabilities/releases/tag/v0.0.7) (2025-10-03)
 
 ### 🚀 Features
