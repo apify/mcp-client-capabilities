@@ -1,0 +1,44 @@
+[changelog]
+# changelog header
+header = """
+# Changelog
+
+All notable changes to this project will be documented in this file.
+"""
+# template for the changelog body
+body = """
+{% if version %}\
+## [{{ version }}](https://github.com/apify/mcp-client-capabilities/releases/tag/{{ version }}) ({{ timestamp | date(format="%Y-%m-%d") }})
+{% else %}\
+## [Unreleased]
+{% endif %}\
+{% for group, commits in commits | group_by(attribute="group") %}
+### {{ group | upper }}
+{% for commit in commits %}
+- {{ commit.message | upper_first }}{% if commit.breaking %} ⚠️ {% endif %}({{ commit.id | truncate(length=7, end="") }}){% if commit.pr %} ([#{{ commit.pr }}](https://github.com/apify/mcp-client-capabilities/pull/{{ commit.pr }})){% endif %}
+{%- endfor %}
+{% endfor %}
+"""
+# remove the leading and trailing whitespace from the template
+trim = true
+
+[git]
+# parse the commits based on https://www.conventionalcommits.org
+conventional_commits = true
+# filter out the commits that are not conventional
+filter_unconventional = true
+# regex for parsing git tags
+tag_pattern = "v[0-9]+\\.[0-9]+\\.[0-9]+"
+# regex for parsing git commits
+commit_parsers = [
+  { message = "^feat", group = "🚀 Features" },
+  { message = "^fix", group = "🐛 Bug Fixes" },
+  { message = "^doc", group = "📚 Documentation" },
+  { message = "^perf", group = "⚡ Performance" },
+  { message = "^refactor", group = "🔧 Refactoring" },
+  { message = "^style", group = "💄 Styling" },
+  { message = "^test", group = "✅ Testing" },
+  { message = "^chore", group = "⚙️ Miscellaneous" },
+]
+# skip_tags regex
+skip_tags = "^v0\\.[0-9]+\\.[0-9]+-beta\\.[0-9]+"
