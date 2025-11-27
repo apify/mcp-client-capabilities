@@ -37,6 +37,15 @@
     "tools": {},
     "url": "https://www.anthropic.com/claude-code"
   },
+  "Cline": {
+    "title": "Cline",
+    "protocolVersion": "2025-06-18",
+    "tools": {
+      "listChanged": true
+    },
+    "resources": {},
+    "url": "https://cline.bot/"
+  },
   "cursor-vscode": {
     "elicitation": {},
     "prompts": {},

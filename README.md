@@ -98,6 +98,7 @@ and provide the best user and agent experience.
 | [Apify MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) | apify-mcp-client | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Claude AI](https://claude.ai) | claude-ai | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Claude Code](https://www.anthropic.com/claude-code) | claude-code | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| [Cline](https://cline.bot/) | Cline | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Cursor Editor](https://cursor.com/) | cursor-vscode | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
 | [LibreChat](https://www.librechat.ai) | @librechat/api-client | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [N8N MCP Client](https://n8n.io/) | @n8n/n8n-nodes-langchain.mcpClientTool | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
