@@ -100,6 +100,7 @@ and provide the best user and agent experience.
 | [Claude Code](https://www.anthropic.com/claude-code) | claude-code | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | [Cursor Editor](https://cursor.com/) | cursor-vscode | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
 | [LibreChat](https://www.librechat.ai) | @librechat/api-client | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [N8N MCP Client](https://n8n.io/) | @n8n/n8n-nodes-langchain.mcpClientTool | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Opencode](https://opencode.ai/) | opencode | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Visual Studio Code](https://code.visualstudio.com/) | Visual Studio Code | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [Windsurf Editor](https://windsurf.com/editor) | windsurf-client | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
