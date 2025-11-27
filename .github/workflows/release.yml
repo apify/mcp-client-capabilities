@@ -62,93 +62,94 @@ jobs:
             -   name: Run validation
                 run: npm run test
 
-    # Pypi publish
-    publish_to_pypi:
-        name: Publish to PyPI
-        needs: [release_metadata, validate]
-        runs-on: ubuntu-latest
-        permissions:
-          contents: write
-          id-token: write # Required for OIDC authentication.
-        environment:
-          name: pypi
-          url: https://pypi.org/project/mcp-client-capabilities
-        steps:
-            -   uses: actions/checkout@v4
-            -   name: Verify commit SHA
-                run: |
-                    CURRENT_SHA=$(git rev-parse HEAD)
-                    echo "Current commit SHA: $CURRENT_SHA"
-            -   name: Verify pyproject.toml version
-                run: |
-                    EXPECTED_VERSION="${{ needs.release_metadata.outputs.version_number }}"
-                    ACTUAL_VERSION=$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/')
+    ## Pypi publish
+    #publish_to_pypi:
+    #    name: Publish to PyPI
+    #    needs: [release_metadata, validate]
+    #    runs-on: ubuntu-latest
+    #    permissions:
+    #      contents: write
+    #      id-token: write # Required for OIDC authentication.
+    #    environment:
+    #      name: pypi
+    #      url: https://pypi.org/project/mcp-client-capabilities
+    #    steps:
+    #        -   uses: actions/checkout@v4
+    #        -   name: Verify commit SHA
+    #            run: |
+    #                CURRENT_SHA=$(git rev-parse HEAD)
+    #                echo "Current commit SHA: $CURRENT_SHA"
+    #        -   name: Verify pyproject.toml version
+    #            run: |
+    #                EXPECTED_VERSION="${{ needs.release_metadata.outputs.version_number }}"
+    #                ACTUAL_VERSION=$(grep '^version = ' pyproject.toml | sed 's/version = "\(.*\)"/\1/')
 
-                     echo "Expected version: $EXPECTED_VERSION"
-                     echo "Actual version in pyproject.toml: $ACTUAL_VERSION"
+    #                 echo "Expected version: $EXPECTED_VERSION"
+    #                 echo "Actual version in pyproject.toml: $ACTUAL_VERSION"
 
-                     if [ "$EXPECTED_VERSION" != "$ACTUAL_VERSION" ]; then
-                        echo "ERROR: Version mismatch! Expected $EXPECTED_VERSION but found $ACTUAL_VERSION in pyproject.toml"
-                        exit 1
-                     fi
+    #                 if [ "$EXPECTED_VERSION" != "$ACTUAL_VERSION" ]; then
+    #                    echo "ERROR: Version mismatch! Expected $EXPECTED_VERSION but found $ACTUAL_VERSION in pyproject.toml"
+    #                    exit 1
+    #                 fi
 
-                     echo "✓ Version check passed: pyproject.toml has correct version $ACTUAL_VERSION"
-            - name: Prepare distribution
-              uses: apify/workflows/prepare-pypi-distribution@main
-              with:
-                ref: ${{ github.sha }}
-                package_name: mcp-client-capabilities
-                is_prerelease: ""
-                version_number: ${{ needs.release_metadata.outputs.version_number }}
-            # Publishes the package to PyPI using PyPA official GitHub action with OIDC authentication.
-            - name: Publish package to PyPI
-              uses: pypa/gh-action-pypi-publish@release/v1
+    #                 echo "✓ Version check passed: pyproject.toml has correct version $ACTUAL_VERSION"
+    #        - name: Prepare distribution
+    #          uses: apify/workflows/prepare-pypi-distribution@main
+    #          with:
+    #            ref: ${{ github.sha }}
+    #            package_name: mcp-client-capabilities
+    #            is_prerelease: ""
+    #            version_number: ${{ needs.release_metadata.outputs.version_number }}
+    #        # Publishes the package to PyPI using PyPA official GitHub action with OIDC authentication.
+    #        - name: Publish package to PyPI
+    #          uses: pypa/gh-action-pypi-publish@release/v1
 
-    # NPM publish
-    publish_to_npm:
-        name: Publish to NPM
-        needs: [ release_metadata, validate ]
-        runs-on: ubuntu-latest
-        steps:
-            -   uses: actions/checkout@v4
-            -   name: Verify commit SHA
-                run: |
-                    CURRENT_SHA=$(git rev-parse HEAD)
-                    echo "Current commit SHA: $CURRENT_SHA"
-            -   name: Verify package.json version
-                run: |
-                    EXPECTED_VERSION="${{ needs.release_metadata.outputs.version_number }}"
-                    ACTUAL_VERSION=$(jq -r '.version' package.json)
+    ## NPM publish
+    #publish_to_npm:
+    #    name: Publish to NPM
+    #    needs: [ release_metadata, validate ]
+    #    runs-on: ubuntu-latest
+    #    steps:
+    #        -   uses: actions/checkout@v4
+    #        -   name: Verify commit SHA
+    #            run: |
+    #                CURRENT_SHA=$(git rev-parse HEAD)
+    #                echo "Current commit SHA: $CURRENT_SHA"
+    #        -   name: Verify package.json version
+    #            run: |
+    #                EXPECTED_VERSION="${{ needs.release_metadata.outputs.version_number }}"
+    #                ACTUAL_VERSION=$(jq -r '.version' package.json)
 
-                     echo "Expected version: $EXPECTED_VERSION"
-                     echo "Actual version in package.json: $ACTUAL_VERSION"
+    #                 echo "Expected version: $EXPECTED_VERSION"
+    #                 echo "Actual version in package.json: $ACTUAL_VERSION"
 
-                     if [ "$EXPECTED_VERSION" != "$ACTUAL_VERSION" ]; then
-                        echo "ERROR: Version mismatch! Expected $EXPECTED_VERSION but found $ACTUAL_VERSION in package.json"
-                        exit 1
-                     fi
+    #                 if [ "$EXPECTED_VERSION" != "$ACTUAL_VERSION" ]; then
+    #                    echo "ERROR: Version mismatch! Expected $EXPECTED_VERSION but found $ACTUAL_VERSION in package.json"
+    #                    exit 1
+    #                 fi
 
-                     echo "✓ Version check passed: package.json has correct version $ACTUAL_VERSION"
-            -   name: Use Node.js 22
-                uses: actions/setup-node@v4
-                with:
-                    node-version: 22
-                    cache: 'npm'
-                    cache-dependency-path: 'package-lock.json'
-            -   name: Install dependencies
-                run: |
-                    echo "access=public" >> .npmrc
-                    echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
-                    npm ci
-            -   name: Build module
-                run: npm run build
-            -   name: Publish to NPM
-                run: npm publish --tag latest
+    #                 echo "✓ Version check passed: package.json has correct version $ACTUAL_VERSION"
+    #        -   name: Use Node.js 22
+    #            uses: actions/setup-node@v4
+    #            with:
+    #                node-version: 22
+    #                cache: 'npm'
+    #                cache-dependency-path: 'package-lock.json'
+    #        -   name: Install dependencies
+    #            run: |
+    #                echo "access=public" >> .npmrc
+    #                echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+    #                npm ci
+    #        -   name: Build module
+    #            run: npm run build
+    #        -   name: Publish to NPM
+    #            run: npm publish --tag latest
 
     # Create GitHub release
     create_github_release:
         name: Create GitHub release
-        needs: [release_metadata, publish_to_pypi, publish_to_npm]
+        #needs: [release_metadata, publish_to_pypi, publish_to_npm]
+        needs: [release_metadata]
         runs-on: ubuntu-latest
         permissions:
           contents: write
