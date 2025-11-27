@@ -6,6 +6,12 @@
     "resources": {},
     "url": "https://www.librechat.ai"
   },
+  "@n8n/n8n-nodes-langchain.mcpClientTool": {
+    "protocolVersion": "2025-06-18",
+    "title": "N8N MCP Client",
+    "tools": {},
+    "url": "https://n8n.io/"
+  },
   "apify-mcp-client": {
     "protocolVersion": "2025-06-18",
     "title": "Apify MCP Client",
