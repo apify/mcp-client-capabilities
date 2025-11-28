@@ -12,6 +12,24 @@
     "tools": {},
     "url": "https://n8n.io/"
   },
+  "amp-mcp-client": {
+    "protocolVersion": "2025-06-18",
+    "title": "AmpCode",
+    "tools": {},
+    "prompts": {},
+    "resources": {},
+    "sampling": {},
+    "url": "https://ampcode.com/"
+  },
+  "antigravity-client": {
+    "protocolVersion": "2025-06-18",
+    "title": "Google Antigravity",
+    "roots": {
+      "listChanged": true
+    },
+    "tools": {},
+    "url": "https://antigravity.google/"
+  },
   "apify-mcp-client": {
     "protocolVersion": "2025-06-18",
     "title": "Apify MCP Client",
@@ -19,6 +37,12 @@
       "listChanged": true
     },
     "url": "https://apify.com/jiri.spilka/tester-mcp-client"
+  },
+  "Cherry Studio": {
+    "protocolVersion": "2025-06-18",
+    "title": "Cherry Studio",
+    "tools": {},
+    "url": "https://www.cherry-ai.com/"
   },
   "claude-ai": {
     "prompts": {},
@@ -46,6 +70,28 @@
     "resources": {},
     "url": "https://cline.bot/"
   },
+  "Codex": {
+    "protocolVersion": "2025-06-18",
+    "title": "OpenAI Codex",
+    "elicitation": {},
+    "tools": {},
+    "url": "https://openai.com/codex/"
+  },
+  "continue-cli-client": {
+    "protocolVersion": "2025-06-18",
+    "title": "Continue CLI Client",
+    "tools": {},
+    "url": "https://www.continue.dev/"
+  },
+  "crush": {
+    "title": "Crush",
+    "roots": {
+      "listChanged": true
+    },
+    "tools": {},
+    "protocolVersion": "2025-06-18",
+    "url": "https://github.com/charmbracelet/crush"
+  },
   "cursor-vscode": {
     "elicitation": {},
     "prompts": {},
@@ -57,6 +103,27 @@
       "listChanged": true
     },
     "url": "https://cursor.com/"
+  },
+  "gemini-cli-mcp-client": {
+    "title": "Gemini CLI",
+    "protocolVersion": "2025-06-18",
+    "tools": {},
+    "prompts": {},
+    "url": "https://geminicli.com/"
+  },
+  "github-copilot-developer": {
+    "protocolVersion": "2025-06-18",
+    "title": "GitHub Copilot CLI",
+    "tools": {},
+    "url": "https://github.com/features/copilot/cli"
+  },
+  "goose": {
+    "protocolVersion": "2025-03-26",
+    "title": "Goose",
+    "tools": {},
+    "prompts": {},
+    "resources": {},
+    "url": "https://block.github.io/goose/"
   },
   "opencode": {
     "protocolVersion": "2025-06-18",
@@ -95,5 +162,12 @@
     "title": "Windsurf Editor",
     "tools": {},
     "url": "https://windsurf.com/editor"
+  },
+  "Zed": {
+    "title": "Zed Editor",
+    "url": "https://zed.dev/",
+    "tools": {},
+    "prompts": {},
+    "protocolVersion": "2025-03-26"
   }
 }
