@@ -41,7 +41,6 @@ jobs:
                 with:
                     release_type: ${{ inputs.release_type }}
                     custom_version: ${{ inputs.custom_version }}
-                    existing_changelog_path: CHANGELOG.md
 
     # Validate data and types
     validate:
