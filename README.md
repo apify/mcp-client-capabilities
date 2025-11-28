@@ -95,16 +95,26 @@ and provide the best user and agent experience.
 | Display name | Client name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Roots](#roots) | [Elicitation](#elicitation) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Amazon Q Developer CLI](https://aws.amazon.com/developer/learning/q-developer-cli/) | Q CLI | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [AmpCode](https://ampcode.com/) | amp-mcp-client | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ |
 | [Apify MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) | apify-mcp-client | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Cherry Studio](https://www.cherry-ai.com/) | Cherry Studio | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Claude AI](https://claude.ai) | claude-ai | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Claude Code](https://www.anthropic.com/claude-code) | claude-code | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | [Cline](https://cline.bot/) | Cline | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Continue CLI Client](https://www.continue.dev/) | continue-cli-client | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Crush](https://github.com/charmbracelet/crush) | crush | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | [Cursor Editor](https://cursor.com/) | cursor-vscode | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| [Gemini CLI](https://geminicli.com/) | gemini-cli-mcp-client | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [GitHub Copilot CLI](https://github.com/features/copilot/cli) | github-copilot-developer | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Google Antigravity](https://antigravity.google/) | antigravity-client | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| [Goose](https://block.github.io/goose/) | goose | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [LibreChat](https://www.librechat.ai) | @librechat/api-client | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [N8N MCP Client](https://n8n.io/) | @n8n/n8n-nodes-langchain.mcpClientTool | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [OpenAI Codex](https://openai.com/codex/) | Codex | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ |
 | [Opencode](https://opencode.ai/) | opencode | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Visual Studio Code](https://code.visualstudio.com/) | Visual Studio Code | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [Windsurf Editor](https://windsurf.com/editor) | windsurf-client | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Zed Editor](https://zed.dev/) | Zed | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 <!-- MCP_CLIENTS_TABLE_END -->
 
 ### Column explanations
