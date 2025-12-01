@@ -1,5 +1,8 @@
 # MCP Client Capabilities
 
+![NPM Version](https://img.shields.io/npm/v/mcp-client-capabilities)
+![PyPI - Version](https://img.shields.io/pypi/v/mcp-client-capabilities)
+
 This package strives to be the most up-to-date database of
 all [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) clients and their capabilities,
 to enable MCP servers understand what features an MCP client supports and how to respond to it
