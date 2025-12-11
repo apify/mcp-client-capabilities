@@ -82,15 +82,16 @@ to the capabilities information provided by this package, as it will always be m
 
 For each unique client name, the JSON file contains just one record representing the information about the 
 latest known publicly-available release.
-This is under the assumption that most users will use the latest version of MCP clients.
+This is under the assumption that most users will upgrade to the latest version of MCP clients,
+especially if something doesn't work right.
 
 The `protocolVersion` only serves as a crude check: **If the version received from the MCP client
 doesn't match the version provided in the JSON file,
 the MCP server should ignore any information provided by the JSON file, as it's clearly out of date.**
 
-If a new MCP client release introduces support for new server capabilities compared to the previous release,
-we strongly recommend the MCP clients to use a new client name to avoid confusing the servers
-and provide the best user and agent experience.
+At this time, the package completely ignores the `clientInfo.version` field, because
+the information about client versions and capabilities is very sparse, and
+most clients don't use versions anyway. This might change in the future.
 
 ### Clients supported
 
