@@ -120,6 +120,7 @@ most clients don't use versions anyway. This might change in the future.
 | [ChatGPT](https://chatgpt.com) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Cherry Studio](https://www.cherry-ai.com) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Jan AI](https://jan.ai) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [JetBrains AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
 | [JetBrains AI Assistant with GitHub Copilot](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
 | [Kilo Code](https://github.com/Kilo-Org/kilocode) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [LibreChat](https://www.librechat.ai) | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
