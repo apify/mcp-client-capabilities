@@ -98,7 +98,7 @@
   "codex-mcp-client": {
     "protocolVersion": "2025-06-18",
     "elicitation": {},
-    "title": "OpenAI Codex MCP Client",
+    "title": "OpenAI Codex",
     "url": "https://openai.com/codex"
   },
   "com.raycast.macos": {
@@ -182,7 +182,7 @@
   },
   "JetBrains-IU-copilot-intellij": {
     "protocolVersion": "2025-06-18",
-    "title": "JetBrains AI Assistant with GitHub Copilot",
+    "title": "JetBrains AI Assistant",
     "sampling": {},
     "elicitation": {},
     "roots": {

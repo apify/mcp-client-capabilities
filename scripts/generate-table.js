@@ -7,12 +7,23 @@ const readmePath = path.join(__dirname, '../README.md');
 const clients = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
 // Generate table content (header + rows)
-const tableHeader = `| Display name | Client name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Roots](#roots) | [Elicitation](#elicitation) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |`;
+const tableHeader = `| Display name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Roots](#roots) | [Elicitation](#elicitation) |
+| --- | --- | --- | --- | --- | --- | --- | --- |`;
+
+// Track seen display names to skip duplicates
+const seenDisplayNames = new Set();
+
 const tableRows = Object.entries(clients)
   .sort(([, a], [, b]) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
   .map(([clientName, clientData]) => {
     const displayName = `[${clientData.title}](${clientData.url})`;
+
+    // Skip if we've already seen this display name
+    if (seenDisplayNames.has(clientData.title)) {
+      return null;
+    }
+    seenDisplayNames.add(clientData.title);
+
     const resources = clientData.resources ? '✅' : '❌';
     const prompts = clientData.prompts ? '✅' : '❌';
     const tools = clientData.tools ? '✅' : '❌';
@@ -21,8 +32,10 @@ const tableRows = Object.entries(clients)
     const roots = clientData.roots ? '✅' : '❌';
     const elicitation = clientData.elicitation ? '✅' : '❌';
 
-    return `| ${displayName} | ${clientName} | ${resources} | ${prompts} | ${tools} | ${discovery} | ${sampling} | ${roots} | ${elicitation} |`;
-  }).join('\n');
+    return `| ${displayName} | ${resources} | ${prompts} | ${tools} | ${discovery} | ${sampling} | ${roots} | ${elicitation} |`;
+  })
+  .filter(row => row !== null)
+  .join('\n');
 
 const fullTable = `${tableHeader}\n${tableRows}`;
 
