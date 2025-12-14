@@ -38,7 +38,7 @@
   },
   "apify-mcp-client": {
     "protocolVersion": "2025-06-18",
-    "title": "Apify MCP Tester",
+    "title": "Apify MCP Client",
     "tools": {
       "listChanged": true
     },
