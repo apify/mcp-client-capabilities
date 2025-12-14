@@ -103,6 +103,8 @@ most clients don't use versions anyway. This might change in the future.
 | [AmpCode](https://ampcode.com) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ |
 | [Apify MCP Tester](https://apify.com/jiri.spilka/tester-mcp-client) | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Arcade](https://arcade.dev) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| [ChatGPT](https://chatgpt.com) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Cherry Studio](https://www.cherry-ai.com) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Claude Code](https://claude.com/product/claude-code) | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | [Claude.ai](https://claude.ai) | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Cline](https://cline.bot/) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
@@ -117,8 +119,6 @@ most clients don't use versions anyway. This might change in the future.
 | [GitHub Copilot for Xcode](https://github.com/github/CopilotForXcode) | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 | [Google Antigravity](https://antigravity.google) | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
 | [Goose](https://block.github.io/goose) | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [ChatGPT](https://chatgpt.com) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [Cherry Studio](https://www.cherry-ai.com) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [Jan AI](https://jan.ai) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [JetBrains AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
 | [JetBrains AI Assistant with GitHub Copilot](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
