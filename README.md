@@ -82,42 +82,60 @@ to the capabilities information provided by this package, as it will always be m
 
 For each unique client name, the JSON file contains just one record representing the information about the 
 latest known publicly-available release.
-This is under the assumption that most users will use the latest version of MCP clients.
+This is under the assumption that most users will upgrade to the latest version of MCP clients,
+especially if something doesn't work right.
 
 The `protocolVersion` only serves as a crude check: **If the version received from the MCP client
 doesn't match the version provided in the JSON file,
 the MCP server should ignore any information provided by the JSON file, as it's clearly out of date.**
 
-If a new MCP client release introduces support for new server capabilities compared to the previous release,
-we strongly recommend the MCP clients to use a new client name to avoid confusing the servers
-and provide the best user and agent experience.
+At this time, the package completely ignores the `clientInfo.version` field, because
+the information about client versions and capabilities is very sparse, and
+most clients don't use versions anyway. This might change in the future.
 
 ### Clients supported
 
 <!-- MCP_CLIENTS_TABLE_START -->
-| Display name | Client name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Roots](#roots) | [Elicitation](#elicitation) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Amazon Q Developer CLI](https://aws.amazon.com/developer/learning/q-developer-cli/) | Q CLI | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| [AmpCode](https://ampcode.com/) | amp-mcp-client | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ |
-| [Apify MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) | apify-mcp-client | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| [Cherry Studio](https://www.cherry-ai.com/) | Cherry Studio | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [Claude AI](https://claude.ai) | claude-ai | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [Claude Code](https://www.anthropic.com/claude-code) | claude-code | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
-| [Cline](https://cline.bot/) | Cline | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| [Continue CLI Client](https://www.continue.dev/) | continue-cli-client | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [Crush](https://github.com/charmbracelet/crush) | crush | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
-| [Cursor Editor](https://cursor.com/) | cursor-vscode | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
-| [Gemini CLI](https://geminicli.com/) | gemini-cli-mcp-client | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [GitHub Copilot CLI](https://github.com/features/copilot/cli) | github-copilot-developer | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [Google Antigravity](https://antigravity.google/) | antigravity-client | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
-| [Goose](https://block.github.io/goose/) | goose | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [LibreChat](https://www.librechat.ai) | @librechat/api-client | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [N8N MCP Client](https://n8n.io/) | @n8n/n8n-nodes-langchain.mcpClientTool | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [OpenAI Codex](https://openai.com/codex/) | Codex | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ |
-| [Opencode](https://opencode.ai/) | opencode | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| [Visual Studio Code](https://code.visualstudio.com/) | Visual Studio Code | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [Windsurf Editor](https://windsurf.com/editor) | windsurf-client | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [Zed Editor](https://zed.dev/) | Zed | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Display name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Roots](#roots) | [Elicitation](#elicitation) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [Alpic](https://alpic.ai) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| [Amazon Q Developer CLI](https://github.com/aws/amazon-q-developer-cli) | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [AmpCode](https://ampcode.com) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ |
+| [Apify MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Arcade](https://arcade.dev) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| [Claude Code](https://claude.com/product/claude-code) | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| [Claude.ai](https://claude.ai) | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Cline](https://cline.bot/) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Continue CLI Client](https://www.continue.dev/) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Crush](https://github.com/charmbracelet/crush) | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| [Cursor](https://cursor.com) | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| [Dust](https://dust.tt) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Factory CLI](https://github.com/factory-ai/factory-cli) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Gemini CLI](https://geminicli.com/) | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [GitGuardian](https://www.gitguardian.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| [GitHub Copilot CLI](https://github.com/features/copilot/cli) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [GitHub Copilot for Xcode](https://github.com/github/CopilotForXcode) | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| [Google Antigravity](https://antigravity.google) | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
+| [Goose](https://block.github.io/goose) | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [ChatGPT](https://chatgpt.com) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Cherry Studio](https://www.cherry-ai.com) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Jan AI](https://jan.ai) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [JetBrains AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
+| [JetBrains AI Assistant with GitHub Copilot](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
+| [Kilo Code](https://github.com/Kilo-Org/kilocode) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [LibreChat](https://www.librechat.ai) | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [LobeHub](https://lobehub.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Make MCP Client](https://www.make.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Mistral AI: Le Chat](https://chat.mistral.ai) | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
+| [N8N MCP Client](https://n8n.io) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [OpenAI Codex](https://openai.com/codex) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ |
+| [Opencode](https://opencode.ai) | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Postman](https://postman.com/downloads) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
+| [Raycast](https://www.raycast.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| [Roo Code](https://roocode.com) | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Visual Studio Code](https://code.visualstudio.com) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Windsurf Editor](https://codeium.com/windsurf) | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Zed Editor](https://zed.dev) | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 <!-- MCP_CLIENTS_TABLE_END -->
 
 ### Column explanations
@@ -270,6 +288,8 @@ and submit a pull request:
   from usage, link to its source code, or official docs.
 - Ideally, add or update just one MCP client per pull request, to make this more manageable.
 - Keep the clients in alphabetical order by their name.
+
+Thanks to [Alpic](https://alpic.ai) for contributing the list of clients from their logs.
 
 ### Development
 

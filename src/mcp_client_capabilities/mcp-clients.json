@@ -10,7 +10,13 @@
     "protocolVersion": "2025-06-18",
     "title": "N8N MCP Client",
     "tools": {},
-    "url": "https://n8n.io/"
+    "url": "https://n8n.io"
+  },
+  "Alpic": {
+    "protocolVersion": "2025-06-18",
+    "title": "Alpic",
+    "elicitation": {},
+    "url": "https://alpic.ai"
   },
   "amp-mcp-client": {
     "protocolVersion": "2025-06-18",
@@ -19,7 +25,7 @@
     "prompts": {},
     "resources": {},
     "sampling": {},
-    "url": "https://ampcode.com/"
+    "url": "https://ampcode.com"
   },
   "antigravity-client": {
     "protocolVersion": "2025-06-18",
@@ -28,7 +34,7 @@
       "listChanged": true
     },
     "tools": {},
-    "url": "https://antigravity.google/"
+    "url": "https://antigravity.google"
   },
   "apify-mcp-client": {
     "protocolVersion": "2025-06-18",
@@ -38,17 +44,29 @@
     },
     "url": "https://apify.com/jiri.spilka/tester-mcp-client"
   },
+  "arcade": {
+    "protocolVersion": "2025-06-18",
+    "title": "Arcade",
+    "elicitation": {},
+    "url": "https://arcade.dev"
+  },
+  "ChatGPT": {
+    "protocolVersion": "2025-06-18",
+    "title": "ChatGPT",
+    "tools": {},
+    "url": "https://chatgpt.com"
+  },
   "Cherry Studio": {
     "protocolVersion": "2025-06-18",
     "title": "Cherry Studio",
     "tools": {},
-    "url": "https://www.cherry-ai.com/"
+    "url": "https://www.cherry-ai.com"
   },
   "claude-ai": {
     "prompts": {},
     "protocolVersion": "2025-06-18",
     "resources": {},
-    "title": "Claude AI",
+    "title": "Claude.ai",
     "tools": {},
     "url": "https://claude.ai"
   },
@@ -59,7 +77,7 @@
     "resources": {},
     "title": "Claude Code",
     "tools": {},
-    "url": "https://www.anthropic.com/claude-code"
+    "url": "https://claude.com/product/claude-code"
   },
   "Cline": {
     "title": "Cline",
@@ -75,7 +93,21 @@
     "title": "OpenAI Codex",
     "elicitation": {},
     "tools": {},
-    "url": "https://openai.com/codex/"
+    "url": "https://openai.com/codex"
+  },
+  "codex-mcp-client": {
+    "protocolVersion": "2025-06-18",
+    "elicitation": {},
+    "title": "OpenAI Codex",
+    "url": "https://openai.com/codex"
+  },
+  "com.raycast.macos": {
+    "protocolVersion": "2025-06-18",
+    "title": "Raycast",
+    "roots": {
+      "listChanged": true
+    },
+    "url": "https://www.raycast.com"
   },
   "continue-cli-client": {
     "protocolVersion": "2025-06-18",
@@ -93,16 +125,27 @@
     "url": "https://github.com/charmbracelet/crush"
   },
   "cursor-vscode": {
-    "elicitation": {},
-    "prompts": {},
     "protocolVersion": "2025-06-18",
+    "title": "Cursor",
+    "url": "https://cursor.com",
     "resources": {},
     "roots": {},
-    "title": "Cursor Editor",
+    "elicitation": {},
+    "prompts": {},
     "tools": {
       "listChanged": true
-    },
-    "url": "https://cursor.com/"
+    }
+  },
+  "dust-mcp-client": {
+    "protocolVersion": "2025-06-18",
+    "title": "Dust",
+    "tools": {},
+    "url": "https://dust.tt"
+  },
+  "factory-cli": {
+    "protocolVersion": "2025-06-18",
+    "title": "Factory CLI",
+    "url": "https://github.com/factory-ai/factory-cli"
   },
   "gemini-cli-mcp-client": {
     "title": "Gemini CLI",
@@ -110,6 +153,12 @@
     "tools": {},
     "prompts": {},
     "url": "https://geminicli.com/"
+  },
+  "gitguardian": {
+    "protocolVersion": "2025-06-18",
+    "title": "GitGuardian",
+    "elicitation": {},
+    "url": "https://www.gitguardian.com"
   },
   "github-copilot-developer": {
     "protocolVersion": "2025-06-18",
@@ -123,7 +172,62 @@
     "tools": {},
     "prompts": {},
     "resources": {},
-    "url": "https://block.github.io/goose/"
+    "url": "https://block.github.io/goose"
+  },
+  "Jan-Streamable-Client": {
+    "protocolVersion": "2025-06-18",
+    "title": "Jan AI",
+    "tools": {},
+    "url": "https://jan.ai"
+  },
+  "JetBrains-IU-copilot-intellij": {
+    "protocolVersion": "2025-06-18",
+    "title": "JetBrains AI Assistant",
+    "sampling": {},
+    "elicitation": {},
+    "roots": {
+      "listChanged": true
+    },
+    "url": "https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant"
+  },
+  "JetBrains-JBC-copilot-intellij": {
+    "protocolVersion": "2025-06-18",
+    "sampling": {},
+    "elicitation": {},
+    "roots": {
+      "listChanged": true
+    },
+    "title": "JetBrains AI Assistant with GitHub Copilot",
+    "url": "https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant"
+  },
+  "Kilo-Code": {
+    "protocolVersion": "2025-06-18",
+    "title": "Kilo Code",
+    "resources": {},
+    "tools": {
+      "listChanged": true
+    },
+    "url": "https://github.com/Kilo-Org/kilocode"
+  },
+  "lobehub-mcp-client": {
+    "protocolVersion": "2025-06-18",
+    "title": "LobeHub",
+    "url": "https://lobehub.com"
+  },
+  "make-app-mcp-client": {
+    "protocolVersion": "2025-06-18",
+    "title": "Make MCP Client",
+    "url": "https://www.make.com"
+  },
+  "Mistral": {
+    "protocolVersion": "2025-06-18",
+    "title": "Mistral AI: Le Chat",
+    "sampling": {},
+    "elicitation": {},
+    "roots": {
+      "listChanged": true
+    },
+    "url": "https://chat.mistral.ai"
   },
   "opencode": {
     "protocolVersion": "2025-06-18",
@@ -131,16 +235,28 @@
     "tools": {
       "listChanged": true
     },
-    "url": "https://opencode.ai/"
+    "url": "https://opencode.ai"
   },
-  "Q CLI": {
-    "prompts": {},
-    "protocolVersion": "2.0",
+  "Postman-Client": {
+    "protocolVersion": "2025-06-18",
+    "title": "Postman",
+    "sampling": {},
+    "elicitation": {},
+    "url": "https://postman.com/downloads"
+  },
+  "Q-DEV-CLI": {
+    "protocolVersion": "2025-06-18",
     "title": "Amazon Q Developer CLI",
-    "tools": {
-      "listChanged": true
-    },
-    "url": "https://aws.amazon.com/developer/learning/q-developer-cli/"
+    "tools": {},
+    "prompts": {},
+    "url": "https://github.com/aws/amazon-q-developer-cli"
+  },
+  "Roo-Code": {
+    "protocolVersion": "2025-06-18",
+    "title": "Roo Code",
+    "resources": {},
+    "tools": {},
+    "url": "https://roocode.com"
   },
   "Visual Studio Code": {
     "prompts": {},
@@ -148,24 +264,62 @@
     "resources": {},
     "sampling": {},
     "roots": {},
-    "elicitation": {},
+    "elicitation": {
+      "form": {},
+      "url": {}
+    },
     "title": "Visual Studio Code",
     "tools": {
       "listChanged": true
     },
-    "url": "https://code.visualstudio.com/"
+    "url": "https://code.visualstudio.com"
+  },
+  "Visual-Studio-Code": {
+    "protocolVersion": "2025-06-18",
+    "resources": {},
+    "sampling": {},
+    "elicitation": {
+      "form": {},
+      "url": {}
+    },
+    "roots": {
+      "listChanged": true
+    },
+    "tools": {
+      "listChanged": true
+    },
+    "title": "Visual Studio Code",
+    "url": "https://code.visualstudio.com"
+  },
+  "Windsurf": {
+    "protocolVersion": "2025-03-26",
+    "title": "Windsurf Editor",
+    "tools": {
+      "listChanged": true
+    },
+    "url": "https://codeium.com/windsurf"
   },
   "windsurf-client": {
     "prompts": {},
     "protocolVersion": "2025-03-26",
     "resources": {},
     "title": "Windsurf Editor",
-    "tools": {},
-    "url": "https://windsurf.com/editor"
+    "tools": {
+      "listChanged": true
+    },
+    "url": "https://codeium.com/windsurf"
+  },
+  "Xcode-copilot-xcode": {
+    "protocolVersion": "2025-06-18",
+    "title": "GitHub Copilot for Xcode",
+    "roots": {
+      "listChanged": true
+    },
+    "url": "https://github.com/github/CopilotForXcode"
   },
   "Zed": {
     "title": "Zed Editor",
-    "url": "https://zed.dev/",
+    "url": "https://zed.dev",
     "tools": {},
     "prompts": {},
     "protocolVersion": "2025-03-26"
