@@ -7,8 +7,8 @@ const readmePath = path.join(__dirname, '../README.md');
 const clients = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
 // Generate table content (header + rows)
-const tableHeader = `| Display name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Roots](#roots) | [Elicitation](#elicitation) |
-| --- | --- | --- | --- | --- | --- | --- | --- |`;
+const tableHeader = `| Display name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Tasks](#tasks) | [Roots](#roots) | [Elicitation](#elicitation) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |`;
 
 // Track seen display names to skip duplicates
 const seenDisplayNames = new Set();
@@ -24,15 +24,16 @@ const tableRows = Object.entries(clients)
     }
     seenDisplayNames.add(clientData.title);
 
-    const resources = clientData.resources ? '✅' : '❌';
-    const prompts = clientData.prompts ? '✅' : '❌';
-    const tools = clientData.tools ? '✅' : '❌';
-    const discovery = clientData.tools?.listChanged ? '✅' : '❌';
-    const sampling = clientData.sampling ? '✅' : '❌';
-    const roots = clientData.roots ? '✅' : '❌';
-    const elicitation = clientData.elicitation ? '✅' : '❌';
+     const resources = clientData.resources ? '✅' : '❌';
+     const prompts = clientData.prompts ? '✅' : '❌';
+     const tools = clientData.tools ? '✅' : '❌';
+     const discovery = clientData.tools?.listChanged ? '✅' : '❌';
+     const sampling = clientData.sampling ? '✅' : '❌';
+     const tasks = clientData.tasks?.requests?.tools?.call ? '✅' : '❌';
+     const roots = clientData.roots ? '✅' : '❌';
+     const elicitation = clientData.elicitation ? '✅' : '❌';
 
-    return `| ${displayName} | ${resources} | ${prompts} | ${tools} | ${discovery} | ${sampling} | ${roots} | ${elicitation} |`;
+     return `| ${displayName} | ${resources} | ${prompts} | ${tools} | ${discovery} | ${sampling} | ${tasks} | ${roots} | ${elicitation} |`;
   })
   .filter(row => row !== null)
   .join('\n');

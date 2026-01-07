@@ -36,7 +36,7 @@ function validateClientCapabilities(clientName: string, record: any): record is 
   }
 
    // Check optional properties
-   const validKeys = ['clientName', 'title', 'url', 'protocolVersion', 'completions', 'experimental', 'logging', 'prompts', 'resources', 'tools', 'elicitation', 'sampling', 'roots'];
+    const validKeys = ['clientName', 'title', 'url', 'protocolVersion', 'completions', 'experimental', 'logging', 'prompts', 'resources', 'tools', 'tasks', 'elicitation', 'sampling', 'roots'];
   for (const key of Object.keys(record)) {
     if (!validKeys.includes(key)) {
       errors.push(`${clientName}: unknown property '${key}'`);
@@ -77,24 +77,75 @@ function validateClientCapabilities(clientName: string, record: any): record is 
     }
   }
 
-  // Validate tools capability
-  if (record.tools !== undefined) {
-    if (typeof record.tools !== 'object' || record.tools === null) {
-      errors.push(`${clientName}.tools: must be an object`);
-    } else {
-      for (const key of Object.keys(record.tools)) {
-        if (key === 'listChanged') {
-          if (typeof record.tools[key] !== 'boolean') {
-            errors.push(`${clientName}.tools.listChanged: must be a boolean`);
-          }
-        } else {
-          errors.push(`${clientName}.tools: unknown property '${key}'`);
-        }
-      }
-    }
-  }
+   // Validate tools capability
+   if (record.tools !== undefined) {
+     if (typeof record.tools !== 'object' || record.tools === null) {
+       errors.push(`${clientName}.tools: must be an object`);
+     } else {
+       for (const key of Object.keys(record.tools)) {
+         if (key === 'listChanged') {
+           if (typeof record.tools[key] !== 'boolean') {
+             errors.push(`${clientName}.tools.listChanged: must be a boolean`);
+           }
+         } else {
+           errors.push(`${clientName}.tools: unknown property '${key}'`);
+         }
+       }
+     }
+   }
 
-  // Validate completions capability (empty object)
+   // Validate tasks capability
+   if (record.tasks !== undefined) {
+     if (typeof record.tasks !== 'object' || record.tasks === null) {
+       errors.push(`${clientName}.tasks: must be an object`);
+     } else {
+       // Validate tasks.requests
+       if (record.tasks.requests !== undefined) {
+         if (typeof record.tasks.requests !== 'object' || record.tasks.requests === null) {
+           errors.push(`${clientName}.tasks.requests: must be an object`);
+         } else {
+           // Validate tasks.requests.tools
+           if (record.tasks.requests.tools !== undefined) {
+             if (typeof record.tasks.requests.tools !== 'object' || record.tasks.requests.tools === null) {
+               errors.push(`${clientName}.tasks.requests.tools: must be an object`);
+             } else {
+               // Validate tasks.requests.tools.call
+               if (record.tasks.requests.tools.call !== undefined) {
+                 if (typeof record.tasks.requests.tools.call !== 'object' || record.tasks.requests.tools.call === null) {
+                   errors.push(`${clientName}.tasks.requests.tools.call: must be an object`);
+                 } else {
+                   // Validate that it's empty or has valid properties
+                   for (const key of Object.keys(record.tasks.requests.tools.call)) {
+                     errors.push(`${clientName}.tasks.requests.tools.call: unknown property '${key}'`);
+                   }
+                 }
+               }
+               // Check for unknown properties in tools
+               for (const key of Object.keys(record.tasks.requests.tools)) {
+                 if (key !== 'call') {
+                   errors.push(`${clientName}.tasks.requests.tools: unknown property '${key}'`);
+                 }
+               }
+             }
+           }
+           // Check for unknown properties in requests
+           for (const key of Object.keys(record.tasks.requests)) {
+             if (key !== 'tools') {
+               errors.push(`${clientName}.tasks.requests: unknown property '${key}'`);
+             }
+           }
+         }
+       }
+       // Check for unknown properties in tasks
+       for (const key of Object.keys(record.tasks)) {
+         if (key !== 'requests') {
+           errors.push(`${clientName}.tasks: unknown property '${key}'`);
+         }
+       }
+     }
+   }
+
+   // Validate completions capability (empty object)
   if (record.completions !== undefined) {
     if (typeof record.completions !== 'object' || record.completions === null) {
       errors.push(`${clientName}.completions: must be an object`);
