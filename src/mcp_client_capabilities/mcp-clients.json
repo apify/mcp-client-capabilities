@@ -273,6 +273,13 @@
     "tools": {
       "listChanged": true
     },
+    "tasks": {
+      "requests": {
+        "tools": {
+          "call": {}
+        }
+      }
+    },
     "url": "https://code.visualstudio.com"
   },
   "Visual-Studio-Code": {

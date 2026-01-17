@@ -96,46 +96,46 @@ most clients don't use versions anyway. This might change in the future.
 ### Clients supported
 
 <!-- MCP_CLIENTS_TABLE_START -->
-| Display name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Roots](#roots) | [Elicitation](#elicitation) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| [Alpic](https://alpic.ai) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| [Amazon Q Developer CLI](https://github.com/aws/amazon-q-developer-cli) | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [AmpCode](https://ampcode.com) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ |
-| [Apify MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| [Arcade](https://arcade.dev) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| [Claude Code](https://claude.com/product/claude-code) | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ❌ |
-| [Claude.ai](https://claude.ai) | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [Cline](https://cline.bot/) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| [Continue CLI Client](https://www.continue.dev/) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [Crush](https://github.com/charmbracelet/crush) | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
-| [Cursor](https://cursor.com) | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
-| [Dust](https://dust.tt) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [Factory CLI](https://github.com/factory-ai/factory-cli) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| [Gemini CLI](https://geminicli.com/) | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [GitGuardian](https://www.gitguardian.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| [GitHub Copilot CLI](https://github.com/features/copilot/cli) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [GitHub Copilot for Xcode](https://github.com/github/CopilotForXcode) | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
-| [Google Antigravity](https://antigravity.google) | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ | ❌ |
-| [Goose](https://block.github.io/goose) | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [ChatGPT](https://chatgpt.com) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [Cherry Studio](https://www.cherry-ai.com) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [Jan AI](https://jan.ai) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [JetBrains AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| [JetBrains AI Assistant with GitHub Copilot](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| [Kilo Code](https://github.com/Kilo-Org/kilocode) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| [LibreChat](https://www.librechat.ai) | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [LobeHub](https://lobehub.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| [Make MCP Client](https://www.make.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| [Mistral AI: Le Chat](https://chat.mistral.ai) | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
-| [N8N MCP Client](https://n8n.io) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [OpenAI Codex](https://openai.com/codex) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ |
-| [Opencode](https://opencode.ai) | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| [Postman](https://postman.com/downloads) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| [Raycast](https://www.raycast.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
-| [Roo Code](https://roocode.com) | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| [Visual Studio Code](https://code.visualstudio.com) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [Windsurf Editor](https://codeium.com/windsurf) | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
-| [Zed Editor](https://zed.dev) | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Display name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Tasks](#tasks) | [Roots](#roots) | [Elicitation](#elicitation) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Alpic](https://alpic.ai) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| [Amazon Q Developer CLI](https://github.com/aws/amazon-q-developer-cli) | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [AmpCode](https://ampcode.com) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| [Apify MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Arcade](https://arcade.dev) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| [ChatGPT](https://chatgpt.com) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Cherry Studio](https://www.cherry-ai.com) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Claude Code](https://claude.com/product/claude-code) | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| [Claude.ai](https://claude.ai) | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Cline](https://cline.bot/) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Continue CLI Client](https://www.continue.dev/) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Crush](https://github.com/charmbracelet/crush) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| [Cursor](https://cursor.com) | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ |
+| [Dust](https://dust.tt) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Factory CLI](https://github.com/factory-ai/factory-cli) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Gemini CLI](https://geminicli.com/) | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [GitGuardian](https://www.gitguardian.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| [GitHub Copilot CLI](https://github.com/features/copilot/cli) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [GitHub Copilot for Xcode](https://github.com/github/CopilotForXcode) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| [Google Antigravity](https://antigravity.google) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| [Goose](https://block.github.io/goose) | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Jan AI](https://jan.ai) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [JetBrains AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
+| [JetBrains AI Assistant with GitHub Copilot](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
+| [Kilo Code](https://github.com/Kilo-Org/kilocode) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [LibreChat](https://www.librechat.ai) | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [LobeHub](https://lobehub.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Make MCP Client](https://www.make.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Mistral AI: Le Chat](https://chat.mistral.ai) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
+| [N8N MCP Client](https://n8n.io) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [OpenAI Codex](https://openai.com/codex) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| [Opencode](https://opencode.ai) | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Postman](https://postman.com/downloads) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅ |
+| [Raycast](https://www.raycast.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| [Roo Code](https://roocode.com) | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [Visual Studio Code](https://code.visualstudio.com) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Windsurf Editor](https://codeium.com/windsurf) | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Zed Editor](https://zed.dev) | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 <!-- MCP_CLIENTS_TABLE_END -->
 
 ### Column explanations
@@ -145,6 +145,7 @@ most clients don't use versions anyway. This might change in the future.
 - <a name="tools"></a>**Tools**: Whether the client supports accessing server tools. Tools are functions that clients can invoke to perform actions on the server side.
 - <a name="discovery"></a>**Discovery**: Whether the client supports dynamic tool discovery via `notifications/tools/list_changed` notifications. This allows tools to be added/removed while the connection is active.
 - <a name="sampling"></a>**Sampling**: Whether the client supports sampling from an LLM. This allows the server to request the client to generate text using its language model.
+- <a name="tasks"></a>**Tasks**: Whether the client supports task-augmented tool calls. This enables asynchronous execution where the server can poll task status and retrieve results after completion, useful for expensive or long-running operations.
 - <a name="roots"></a>**Roots**: Whether the client supports managing root directories. Roots define the workspace or directories that the client wants the server to have access to.
 - <a name="elicitation"></a>**Elicitation**: Whether the client supports elicitation from the server. This allows the server to request additional information or clarification from the client during interactions.
 
