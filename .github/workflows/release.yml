@@ -190,10 +190,7 @@ jobs:
                     cache: 'npm'
                     cache-dependency-path: 'package-lock.json'
             -   name: Install dependencies
-                run: |
-                    echo "access=public" >> .npmrc
-                    echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
-                    npm ci
+                run: npm ci
             -   name: Build module
                 run: npm run build
             -   name: Publish to NPM
