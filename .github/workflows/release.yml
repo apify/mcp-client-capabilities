@@ -150,6 +150,9 @@ jobs:
         name: Publish to NPM
         needs: [ release_metadata, validate, update_version ]
         runs-on: ubuntu-latest
+        permissions:
+          id-token: write  # Required for OIDC
+          contents: read
         steps:
             -   uses: actions/checkout@v4
                 with:
