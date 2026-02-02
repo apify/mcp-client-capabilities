@@ -2,6 +2,10 @@
   "name": "mcp-client-capabilities",
   "version": "0.0.12",
   "description": "Index of all Model Context Protocol (MCP) clients and their capabilities",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apify/mcp-client-capabilities"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
