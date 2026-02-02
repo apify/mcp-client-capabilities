@@ -1,6 +1,6 @@
 {
   "name": "mcp-client-capabilities",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Index of all Model Context Protocol (MCP) clients and their capabilities",
   "repository": {
     "type": "git",
