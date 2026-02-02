@@ -98,7 +98,7 @@ most clients don't use versions anyway. This might change in the future.
 <!-- MCP_CLIENTS_TABLE_START -->
 | Display name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Tasks](#tasks) | [Roots](#roots) | [Elicitation](#elicitation) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Alpic](https://alpic.ai) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| [Alpic Playground](https://alpic.ai/blog/launch-week-2-introducing-the-alpic-playground) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | [Amazon Q Developer CLI](https://github.com/aws/amazon-q-developer-cli) | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [AmpCode](https://ampcode.com) | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
 | [Apify MCP Client](https://apify.com/jiri.spilka/tester-mcp-client) | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
@@ -117,12 +117,12 @@ most clients don't use versions anyway. This might change in the future.
 | [GitGuardian](https://www.gitguardian.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
 | [GitHub Copilot CLI](https://github.com/features/copilot/cli) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [GitHub Copilot for Xcode](https://github.com/github/CopilotForXcode) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
-t| [Glama](https://glama.ai/chat) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
+| [Glama](https://glama.ai/chat) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
 | [Google Antigravity](https://antigravity.google) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
 | [Goose](https://block.github.io/goose) | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [Jan AI](https://jan.ai) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| [JetBrains AI Assistant with GitHub Copilot](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
 | [JetBrains AI Assistant](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
+| [JetBrains AI Assistant with GitHub Copilot](https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
 | [Kilo Code](https://github.com/Kilo-Org/kilocode) | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
 | [LibreChat](https://www.librechat.ai) | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [LobeHub](https://lobehub.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
