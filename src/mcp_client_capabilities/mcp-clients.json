@@ -166,6 +166,28 @@
     "tools": {},
     "url": "https://github.com/features/copilot/cli"
   },
+  "Glama": {
+    "prompts": {},
+    "protocolVersion": "2025-06-18",
+    "resources": {},
+    "sampling": {},
+    "elicitation": {
+      "form": {},
+      "url": {}
+    },
+    "title": "Glama",
+    "tools": {
+      "listChanged": true
+    },
+    "tasks": {
+      "requests": {
+        "tools": {
+          "call": {}
+        }
+      }
+    },
+    "url": "https://glama.ai/chat"
+  },
   "goose": {
     "protocolVersion": "2025-03-26",
     "title": "Goose",
