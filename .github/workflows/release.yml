@@ -135,7 +135,7 @@ jobs:
 
                      echo "✓ Version check passed: pyproject.toml has correct version $ACTUAL_VERSION"
             - name: Prepare distribution
-              uses: apify/workflows/prepare-pypi-distribution@main
+              uses: apify/workflows/prepare-pypi-distribution@e9d8b247c5be28889b1f6df1e23a991c3d0f6305
               with:
                 ref: ${{ needs.update_version.outputs.version_commitish }}
                 package_name: mcp-client-capabilities
