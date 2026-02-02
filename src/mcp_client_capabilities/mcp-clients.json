@@ -14,9 +14,10 @@
   },
   "Alpic": {
     "protocolVersion": "2025-06-18",
-    "title": "Alpic",
+    "title": "Alpic Playground",
+    "tools": {},
     "elicitation": {},
-    "url": "https://alpic.ai"
+    "url": "https://alpic.ai/blog/launch-week-2-introducing-the-alpic-playground"
   },
   "amp-mcp-client": {
     "protocolVersion": "2025-06-18",
