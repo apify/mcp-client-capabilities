@@ -14,7 +14,7 @@ export interface McpClientRecord {
   prompts?: { listChanged?: boolean };
   tools?: { listChanged?: boolean };
   tasks?: { requests?: { tools?: { call?: {} } } };
-  elicitation?: {};
+  elicitation?: { form?: {}; url?: {} };
   sampling?: {},
   roots?: { listChanged?: boolean },
   completions?: {};

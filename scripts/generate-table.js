@@ -7,7 +7,7 @@ const readmePath = path.join(__dirname, '../README.md');
 const clients = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
 // Generate table content (header + rows)
-const tableHeader = `| Display name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Tasks](#tasks) | [Roots](#roots) | [Elicitation](#elicitation) |
+const tableHeader = `| Display name | [Resources](#resources) | [Prompts](#prompts) | [Tools](#tools) | [Discovery](#discovery) | [Sampling](#sampling) | [Tasks](#tasks) | [Roots](#roots) | [Elicitation](#elicitation) (form, url) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |`;
 
 // Track seen display names to skip duplicates
@@ -31,7 +31,10 @@ const tableRows = Object.entries(clients)
      const sampling = clientData.sampling ? '✅' : '❌';
      const tasks = clientData.tasks?.requests?.tools?.call ? '✅' : '❌';
      const roots = clientData.roots ? '✅' : '❌';
-     const elicitation = clientData.elicitation ? '✅' : '❌';
+     const hasElicitation = !!clientData.elicitation;
+     const elicitationForm = hasElicitation && (!clientData.elicitation.url || clientData.elicitation.form) ? '✅' : '❌';
+     const elicitationUrl = clientData.elicitation?.url ? '✅' : '❌';
+     const elicitation = `${elicitationForm}, ${elicitationUrl}`;
 
      return `| ${displayName} | ${resources} | ${prompts} | ${tools} | ${discovery} | ${sampling} | ${tasks} | ${roots} | ${elicitation} |`;
   })
