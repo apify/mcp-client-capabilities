@@ -35,7 +35,7 @@ jobs:
             changelog: ${{ steps.release_metadata.outputs.changelog }}
             release_notes: ${{ steps.release_metadata.outputs.release_notes }}
         steps:
-            -   uses: apify/actions/git-cliff-release@v1.1.1
+            -   uses: apify/actions/git-cliff-release@v1.1.2
                 name: Prepare release metadata
                 id: release_metadata
                 with:
@@ -135,7 +135,7 @@ jobs:
 
                      echo "✓ Version check passed: pyproject.toml has correct version $ACTUAL_VERSION"
             - name: Prepare distribution
-              uses: apify/actions/prepare-pypi-distribution@v1.1.1
+              uses: apify/actions/prepare-pypi-distribution@v1.1.2
               with:
                 ref: ${{ needs.update_version.outputs.version_commitish }}
                 package_name: mcp-client-capabilities
