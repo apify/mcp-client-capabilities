@@ -35,7 +35,8 @@ class Experimental(TypedDict, total=False):
 
 
 class Elicitation(TypedDict, total=False):
-    pass
+    form: Optional[dict]
+    url: Optional[dict]
 
 
 class Sampling(TypedDict, total=False):

@@ -159,10 +159,24 @@ function validateClientCapabilities(clientName: string, record: any): record is 
      }
    }
 
-   // Validate elicitation capability (empty object)
+   // Validate elicitation capability
    if (record.elicitation !== undefined) {
      if (typeof record.elicitation !== 'object' || record.elicitation === null) {
        errors.push(`${clientName}.elicitation: must be an object`);
+     } else {
+       for (const key of Object.keys(record.elicitation)) {
+         if (key === 'form' || key === 'url') {
+           if (typeof record.elicitation[key] !== 'object' || record.elicitation[key] === null) {
+             errors.push(`${clientName}.elicitation.${key}: must be an object`);
+           } else {
+             for (const subKey of Object.keys(record.elicitation[key])) {
+               errors.push(`${clientName}.elicitation.${key}: unknown property '${subKey}'`);
+             }
+           }
+         } else {
+           errors.push(`${clientName}.elicitation: unknown property '${key}'`);
+         }
+       }
      }
    }
 
