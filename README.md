@@ -127,6 +127,7 @@ most clients don't use versions anyway. This might change in the future.
 | [LibreChat](https://www.librechat.ai) | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌, ❌ |
 | [LobeHub](https://lobehub.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌, ❌ |
 | [Make MCP Client](https://www.make.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌, ❌ |
+| [mcpx](https://github.com/lydakis/mcpx) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌, ❌ |
 | [Mistral AI: Le Chat](https://chat.mistral.ai) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅, ❌ |
 | [N8N MCP Client](https://n8n.io) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌, ❌ |
 | [OpenAI Codex](https://openai.com/codex) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅, ❌ |
