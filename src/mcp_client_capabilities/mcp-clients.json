@@ -242,6 +242,12 @@
     "title": "Make MCP Client",
     "url": "https://www.make.com"
   },
+  "mcpx": {
+    "protocolVersion": "2026-07-28",
+    "title": "mcpx",
+    "tools": {},
+    "url": "https://github.com/lydakis/mcpx"
+  },
   "Mistral": {
     "protocolVersion": "2025-06-18",
     "title": "Mistral AI: Le Chat",
