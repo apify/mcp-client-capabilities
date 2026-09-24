@@ -130,7 +130,7 @@ most clients don't use versions anyway. This might change in the future.
 | [mcpx](https://github.com/lydakis/mcpx) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌, ❌ |
 | [Mistral AI: Le Chat](https://chat.mistral.ai) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅, ❌ |
 | [N8N MCP Client](https://n8n.io) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌, ❌ |
-| [OpenAI Codex](https://openai.com/codex) | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅, ❌ |
+| [OpenAI Codex](https://openai.com/codex) | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅, ❌ |
 | [Opencode](https://opencode.ai) | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌, ❌ |
 | [Postman](https://postman.com/downloads) | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ✅, ❌ |
 | [Raycast](https://www.raycast.com) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌, ❌ |
