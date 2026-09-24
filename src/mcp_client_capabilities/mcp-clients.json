@@ -94,6 +94,7 @@
     "title": "OpenAI Codex",
     "elicitation": {},
     "tools": {},
+    "resources": {},
     "url": "https://openai.com/codex"
   },
   "codex-mcp-client": {
