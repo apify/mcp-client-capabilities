@@ -284,7 +284,7 @@ Therefore, we're releasing this package with a hope to accelerate the developmen
 ## Contributors
 
 We highly appreciate community contributions to make the list of MCP clients and their capabilities
-complete and up to date. To add a new client or updated an existing one, simply edit the `src/mcp-clients.json` file
+complete and up to date. To add a new client or updated an existing one, simply edit the [`src/mcp_client_capabilities/mcp-clients.json`](src/mcp_client_capabilities/mcp-clients.json) file
 and submit a pull request:
 
 - The pull request should contain some evidence to back up the existence of the MCP client capabilities, e.g. screenshot
