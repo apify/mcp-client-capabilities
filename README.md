@@ -1,3 +1,5 @@
+# THIS REPOSITORY IS ARCHIVED AND NO LONGER RELEVANT, DO NOT USE
+
 # MCP Client Capabilities
 
 ![NPM Version](https://img.shields.io/npm/v/mcp-client-capabilities)
